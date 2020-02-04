@@ -1,0 +1,155 @@
+/* General classes throughout website */
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+p {
+    font-size: 16px;
+}
+
+body {
+    background-color: #d9dcd6;
+}
+
+
+/* Classes to describe the header and navigation bar in the header */
+
+.header {
+    padding: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: #2a607c;
+    color: #ffffff;
+}
+
+.header h1 {
+    display: inline-block;
+    font-size: 48px;
+}
+
+.header h1 .seo {
+    color: #d9dcd6;
+}
+
+.header nav {
+    padding-top: 15px;
+    margin-right: 20px;
+    float: right;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+}
+
+.header nav ul {
+    list-style-type: none;
+}
+
+.header nav ul li {
+    display: inline-block;
+    margin-left: 25px;
+}
+
+
+/* Describe the main background image container */
+
+.hero {
+    width: 100%;
+    height: 800px;
+    background-image: url("../images/digital-marketing-meeting.jpg");
+    margin-bottom: 25px;
+    background-size: cover;
+    background-position: center;
+}
+
+
+/* Describe the main section of the website */
+
+.content {
+    width: 75%;
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.float-left {
+    float: left;
+    margin-right: 25px;
+}
+
+.float-right {
+    float: right;
+    margin-left: 25px;
+}
+
+
+/* Removed individual classes for each service offering and replaced with a single blue-container class */
+
+.blue-container {
+    margin-bottom: 20px;
+    padding: 50px;
+    height: 300px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: #0072bb;
+    color: #ffffff;
+}
+
+.blue-container img {
+    max-height: 200px;
+}
+
+.blue-container h2 {
+    margin-bottom: 20px;
+    font-size: 36px;
+}
+
+
+/* Describe the sidebar container */
+
+aside {
+    margin-right: 20px;
+    padding: 20px;
+    clear: both;
+    float: right;
+    width: 20%;
+    height: 100%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: #2589bd;
+}
+
+
+/* Removed individual classes for each benefit description and replaced with a single sidebar-container class */
+
+.sidebar-container {
+    margin-bottom: 14px;
+    color: #ffffff;
+}
+
+.sidebar-container h3 {
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.sidebar-container img {
+    display: block;
+    margin: 8px auto;
+    max-width: 150px;
+}
+
+
+/* Describe the website footer */
+
+.footer {
+    padding: 30px;
+    clear: both;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+}
+
+.footer h2 {
+    font-size: 20px;
+}
