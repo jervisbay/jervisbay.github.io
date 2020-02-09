@@ -2,6 +2,26 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+@media screen and (max-width: 600px) {
+    .navbar {
+        display: none
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .navbar2 {
+        display: none
+    }
+}
+
+#border-left {
+    border-left: black solid 1px;
+}
+
+#border-right {
+    border-right: black solid 1px;
+}
+
 body {
     background-color: rgb(240, 240, 223);
 }
@@ -27,8 +47,21 @@ body {
 .nav-link {
     font-size: 16px;
     margin: auto;
-    border-left: black solid 1px;
     text-align: center;
+}
+
+.navbar2 {
+    background-color: rgba(255, 255, 0, 0.479);
+}
+
+#navbar2-top-row {
+    background-color: rgb(185, 185, 185);
+    color: black;
+    font-weight: bolder;
+    text-align: center;
+    margin: auto;
+    padding: 6px 41% 6px 41%;
+    height: 40px;
 }
 
 a {
