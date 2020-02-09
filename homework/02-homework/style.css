@@ -5,13 +5,13 @@
 
 /* Sets rules for when the navigation bar changes */
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 576px) {
     .navbar {
         display: none
     }
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 576px) {
     .navbar2 {
         display: none
     }
