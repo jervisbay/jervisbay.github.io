@@ -92,6 +92,8 @@ a {
     margin-top: 10px;
 }
 
+.card {}
+
 .card-header {
     background-color: yellow;
     border-bottom: black solid 2px;
@@ -100,6 +102,25 @@ a {
 
 .card-body {
     background-color: rgb(245, 241, 192);
+}
+
+#portfolio-card {
+    margin-top: 20px;
+    padding-left: 8%;
+}
+
+.floater {
+    background-color: yellow;
+    width: 150px;
+    text-align: center;
+    font-weight: bold;
+    height: 30px;
+    padding-top: 2%;
+    border-top: rgb(128, 128, 0) solid 1px;
+    border-bottom: rgb(128, 128, 0) solid 1px;
+    position: relative;
+    bottom: 30%;
+    font-size: 14px;
 }
 
 
@@ -112,4 +133,6 @@ footer {
     text-align: center;
     padding-top: 1px;
     padding-bottom: 1px;
+    margin-top: 300px;
+    width: 100%
 }
