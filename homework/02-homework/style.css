@@ -75,8 +75,9 @@ a {
     color: black;
     font-weight: bolder;
     text-align: center;
+    /* Why doesn't this text align center automatically? */
     margin: auto;
-    padding: 6px 41% 6px 41%;
+    padding: 6px 40% 6px 40%;
     height: 40px;
 }
 
