@@ -117,6 +117,7 @@ function askForCriteria() {
 
         // Picking a random character from the character set
         var c = Math.floor(Math.random() * characterSet.length);
+
         // Appending the random character to the password
         password += characterSet.charAt(c)
     }
