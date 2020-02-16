@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Declare score variables
+        var userScore = 0;
+        var computerScore = 0;
+
+        // Declare number of games variable
+        var numberGames = prompt("How many games would you like to play?");
+
+        // Prompt user for input (rock, paper, scissors)
+
+        for (i = 0; i < parseInt(numberGames); i++) {
+            var userInput = prompt("Please choose: 'r' for Rock, 'p' for Paper, 's' for Scissors");
+            userInput = userInput.toLowerCase();
+
+            // Create array to store rock, paper, scissors
+            var rPS = ["r", "p", "s"];
+
+            // Create random number generator for the computer input
+            var computerInput = rPS[Math.floor(Math.random() * rPS.length)];
+
+            // Print user and computer inputs to console log to check
+            console.log("User input is " + userInput);
+            console.log("Computer input is " + computerInput);
+
+            // Check who wins
+            if (userInput === "r" && computerInput === "s") {
+                alert("YOU WIN!");
+                userScore = userScore + 1;
+            } else if (userInput === "r" && computerInput === "p") {
+                alert("YOU LOSE!");
+                computerScore++;
+            } else if (userInput === "p" && computerInput === "r") {
+                alert("YOU WIN!");
+                userScore++;
+            } else if (userInput === "p" && computerInput === "s") {
+                alert("YOU LOSE!");
+                computerScore++;
+            } else if (userInput === "s" && computerInput === "p") {
+                alert("YOU WIN!");
+                userScore++;
+            } else if (userInput === "s" && computerInput === "r") {
+                alert("YOU LOSE!");
+                computerScore++;
+            } else {
+                alert("It's a tie!")
+            }
+        }
+
+        // Alert final score for user and computer
+        alert("You won " + userScore + " games and the Computer won " + computerScore + " games")
+    </script>
+</body>
+
+</html>
