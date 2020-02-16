@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+
+    <!-- Linking stylesheets -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<script src="password.js"></script>
+
+
+<header>
+    <h2>Password Generator</h2>
+</header>
+<br>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">Generate a Password</div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col align-center" id="passwordBox">
+                        <p id="passwordHolder">Your Secure Password</p>
+                    </div>
+                </div>
+                <div class="row" id="spacer-row">
+                    <div class="col"></div>
+                </div>
+                <div class="row">
+                    <div class="col align-center">
+                        <button type="button" class="btn btn-danger" onclick="askForCriteria()">Generate Password</button>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+        </div>
+    </div>
+
+</body>
+
+
+</html>
