@@ -26,7 +26,7 @@ function askForCriteria() {
     }
 
 
-    // Changing variables based on confirms above
+    // Changing variables based on confirms above; this step might not be necessary, mainly for clarity and alerting purpose
     if (lowerCase) {
         lowerCase = "yes";
         lowerCaseOutput = "lowercase characters";
@@ -101,23 +101,30 @@ function askForCriteria() {
         alert("That's weird...");
     }
 
-    // Check for proper character set based on inputs
+    // Check for proper character set based on inputs and console log it
     console.log("Lowercase: " + lowerCase);
     console.log("Uppercase: " + upperCase);
     console.log("Numeric: " + numeric);
     console.log("Special Characters: " + specialCharacter);
     console.log("This is the character set to be used: " + characterSet);
 
-
+    // Define password variable that will initially be blank
     var password = '';
 
-    for (i = 0; i < passwordLength; i++) {
-        var c = Math.floor(Math.random() * characterSet.length + 1);
+    // For loop, keeps going as long as i is shorter than user entered password length
+
+    for (i = 1; i <= passwordLength; i++) {
+
+        // Picking a random character from the character set
+        var c = Math.floor(Math.random() * characterSet.length);
+        // Appending the random character to the password
         password += characterSet.charAt(c)
     }
 
-    console.log(password);
+    // Console logging generated password to check
+    console.log("This is the password: " + password);
 
+    // Swapping out placeholder text with generated password
     document.getElementById("passwordHolder").innerHTML = password;
 
     // This is the end of the ask for criteria function (like a wrapper)

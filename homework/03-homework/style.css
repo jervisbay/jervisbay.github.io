@@ -1,5 +1,4 @@
 * {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 16px;
 }
 
@@ -19,4 +18,8 @@ h2 {
 
 #spacer-row {
     height: 1rem;
+}
+
+#passwordHolder {
+    max-width: 300ch;
 }
