@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<script>
+    // Checking if "mac" or "windows" exists within user agent
+    console.log(window.navigator.userAgent);
+    macUser = window.navigator.userAgent.toLowerCase().indexOf("mac");
+    winUser = window.navigator.userAgent.toLowerCase().indexOf("windows");
+    console.log(macUser);
+    console.log(winUser);
+
+    // Check if Mac
+    if (macUser > 1) {
+        alert("Welcome, Mac user!");
+    }
+    // Check if Windows
+    if (winUser > 1) {
+        alert("Welcome, Windows user!");
+    }
+    // If neither Mac or Windows
+    if (winUser < 1 && macUser < 1) {
+        alert("Unknow OS user");
+    }
+
+    // Calling the current position
+
+    navigator.geolocation.getCurrentPosition(showLoc);
+
+    function showLoc(loc) {
+        var latitude = loc.coords.latitude;
+        var longitude = loc.coords.longitude;
+        console.log("Latitude is: " + latitude);
+        console.log("Longitude is: " + longitude);
+        userLocation(latitude, longitude);
+    }
+
+    // Check for user location
+    function userLocation(latitude, longitude) {
+        if (latitude >= 30 && longitude >= 90) {
+            alert("Hello, West Coaster!");
+        } else {
+            alert("Hello, East Coaster!");
+        }
+    }
+</script>
+
+
+<body>
+
+</body>
+
+</html>
