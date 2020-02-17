@@ -18,6 +18,8 @@ A character set is then created based on the user confirms and stored in an arra
 
 A for loop is created to keep incrementing as long as variable is less than the user's desired password length.
 
-Within this for loop, a random number is generated based on the length of the created character set and is used to select the character (by index number) within the created character set.  A variable is created to store the password and as the for loop continues, the randomly selected character is appended to the password.
+Within this for loop, a random number is generated based on the length of the created character set and is used to select the character (by index number) within the created character set.  
+
+A variable is created to store the password and as the for loop continues, the randomly selected character is appended to the password.
 
 Finally, the generated password replaces the placeholder text within the textbox

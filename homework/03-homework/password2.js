@@ -25,16 +25,16 @@ function askForCriteria() {
         askForCriteria();
     }
 
-    // Create variables for the character set
+    // Define variable for the characterSet which will store all the characters from which the password will be generated from.  Initially blank.
     var characterSet = '';
+
+    // Define variables to store the full character sets for the different criteria
     var lowerCaseSet = "abcdefghijklmnopqrstuvwxyz";
     var upperCaseSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     var numericSet = "1234567890";
     var specialCharacterSet = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
 
-
-    // Changing variables based on confirms above; this step might not be necessary, mainly for clarity and alerting purpose
-    // Define character sets based on user inputs above
+    // Define character sets based on user inputs above, appending the created full character sets to characterSet
     if (lowerCase) {
         lowerCase = "yes";
         lowerCaseOutput = "lowercase characters";
@@ -76,8 +76,8 @@ function askForCriteria() {
     }
 
 
-    // Alert user what kind of password he / she wants
-    alert("You want a " + passwordLength + " character password with " + lowerCaseOutput + " and with " + upperCaseOutput + " and with " + numericOutput + " and with " + specialCharacterOutput);
+    // Alert user to the kind of password he / she wants
+    alert("You want a " + passwordLength + " character password with " + lowerCaseOutput + ", with " + upperCaseOutput + ", with " + numericOutput + ", and with " + specialCharacterOutput);
 
     // Check for proper character set based on inputs and console log it
     console.log("Lowercase: " + lowerCase);
@@ -103,8 +103,8 @@ function askForCriteria() {
     // Console logging generated password to check
     console.log("This is the password: " + password);
 
-    // Swapping out placeholder text with generated password
+    // Swapping out placeholder text in html file with generated password
     document.getElementById("passwordHolder").innerHTML = password;
 
-    // This is the end of the ask for criteria function (like a wrapper)
+    // This is the end of the askForCriteria function (like a wrapper)
 }
