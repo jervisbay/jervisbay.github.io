@@ -108,3 +108,10 @@ function askForCriteria() {
 
     // This is the end of the askForCriteria function (like a wrapper)
 }
+
+// Trying to make a copy password function
+function copyPassword() {
+    var copyText = document.getElementById("passwordHolder");
+    copyText.select();
+    document.execCommand("copy");
+}
