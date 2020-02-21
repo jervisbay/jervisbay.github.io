@@ -23,3 +23,7 @@ Within this for loop, a random number is generated based on the length of the cr
 A variable is created to store the password and as the for loop continues, the randomly selected character is appended to the password.
 
 Finally, the generated password replaces the placeholder text within the textbox
+
+## Bonus!
+
+Created a second button for a function that copies the created password, similar to how Dashlane or Lastpass would work
