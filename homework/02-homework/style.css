@@ -133,6 +133,7 @@ footer {
     text-align: center;
     padding-top: 1px;
     padding-bottom: 1px;
-    margin-top: 300px;
-    width: 100%
+    position: static;
+    bottom: 0%;
+    width: 100%;
 }
