@@ -87,7 +87,7 @@ a {
 .body-container {
     width: 90%;
     /* border: 1px black solid; */
-    height: 600px;
+    height: 1000px;
     margin: auto;
     margin-top: 10px;
 }
@@ -133,7 +133,7 @@ footer {
     text-align: center;
     padding-top: 1px;
     padding-bottom: 1px;
-    position: fixed;
+    position: static;
     bottom: 0%;
     left: 0%;
     width: 100%;
