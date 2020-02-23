@@ -1,13 +1,32 @@
 ### Homework 3
 
+## Password Generator
+This is a website that generates passwords through a combination of 
+1) lower case characters,
+2) UPPERCASE characters,
+3) numeric characters,
+4) special characters
+
+On button click, the user is first prompted to input how long of a password (in terms of number of characters) is desired.
+
+The password has to be between 8 and 128 characters.  An invalid input will restart the process.
+
+The user is then asked to confirm whether he / she would like to include the above 4 criteria in the password.  
+
+The password is generated and shown in the placeholder textbox.
+
+On button click, the user can copy the generated password into clipboard.
+
 ## HTML file
 Created html layout using bootstrap.css, mainly using the 'card' containers.
-Created button that would utilize the function from javascript when it is clicked
+Created buttons that would utilize the function from javascript when it is clicked.
 
 ## CSS file
-Created simple css file (style.css) to format html file a little
+Created simple css file (style.css) to for some basic formatting
 
 ## Javascript file 
+
+## Generating the password
 Entire code is wrapped within an 'askForCriteria()' function.
 
 First prompts user to enter a desired password length between 8 and 128 characters.  If length is an invalid value, user is alerted and the function called again.
@@ -24,6 +43,8 @@ A variable is created to store the password and as the for loop continues, the r
 
 Finally, the generated password replaces the placeholder text within the textbox
 
-## Bonus!
+## Copying the generated password to clipboard
+
+Copy to clipboard functionality built by creating a range within the document and using an execCommand("copy") method.
 
 Created a second button for a function that copies the created password, similar to how Dashlane or Lastpass would work
