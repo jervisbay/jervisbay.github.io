@@ -1,0 +1,35 @@
+body {
+    font-family: "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif;
+    margin: 2em;
+}
+
+.carouselbox {
+    width: 600px;
+    height: 600px;
+    cursor: pointer;
+    background-color: black;
+    background-image: url("https://images.radio.com/aiu-media/GettyImages1061822700-eb517cd2-387f-4448-ab1b-759627ede846.jpg?width=800");
+}
+
+.buttons {
+    text-align: center;
+}
+
+button {
+    position: absolute;
+    margin-top: -30px;
+}
+
+img {
+    margin: 0 auto;
+}
+
+.prev {
+    top: 280px;
+    left: 40px;
+}
+
+.next {
+    top: 280px;
+    left: 240px;
+}
