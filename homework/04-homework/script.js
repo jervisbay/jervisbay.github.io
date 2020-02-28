@@ -2,7 +2,14 @@
 
 var userScore = 0;
 var startButton = $("#start-button");
-
+var questionsAndAnswers = [{
+    Question: "What is this?",
+    1: "xxx",
+    2: "yyy",
+    3: "zzz",
+    4: "aaa",
+    Correct: "xxx",
+}]
 
 // Define functions
 $(document).ready(function() {
@@ -25,16 +32,19 @@ $(document).ready(function() {
         }, 1000);
     }
 
+    function generateQuestions() {
+        startButton.hide();
+        $(".introText").hide();
+
+
+    }
 
 
 
     // Call functions
 
     startButton.on("click", countDown);
-    startButton.on("click", function() {
-        startButton.hide();
-        $(".introText").hide();
-    });
+    startButton.on("click", generateQuestions);
 
     // End of document listener
 })
