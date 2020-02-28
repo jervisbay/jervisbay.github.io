@@ -1,0 +1,29 @@
+h1 {
+    text-align: center;
+    margin: auto;
+    margin-bottom: 1rem;
+    border: solid 1px;
+    width: 80%;
+    background-color: blanchedalmond;
+    height: 4rem;
+    padding-top: 4px;
+}
+
+.spacer-row {
+    min-height: 3rem;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.container {
+    width: 80%;
+}
+
+#displayTimer {
+    border: 1px solid black;
+    position: fixed;
+    bottom: 5rem;
+    width: 80%;
+}
