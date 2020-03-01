@@ -4,20 +4,42 @@ var userScore = 0;
 var startButton = $("#start-button");
 var mainTextContainer = $(".introText");
 var quizContainer = $("#quizQuestions");
+var questionNumber = 0;
+
+// Define Array to hold Questions and Answers
+
 var questionsAndAnswers = [{
     Question: "What is this?",
     Answers: ["xxx", "yyy", "bbb", "ccc"],
     Correct: "xxx",
+}, {
+    Question: "Who is this?",
+    Answers: ["xxx", "yyy", "bbb", "ccc"],
+    Correct: "xxx",
+}, {
+    Question: "How is this?",
+    Answers: ["xxx", "yyy", "bbb", "ccc"],
+    Correct: "xxx",
+}, {
+    Question: "Why is this?",
+    Answers: ["xxx", "yyy", "bbb", "ccc"],
+    Correct: "xxx",
+}, {
+    Question: "Where is this?",
+    Answers: ["xxx", "yyy", "bbb", "ccc"],
+    Correct: "xxx",
 }]
-var timerCount = 180;
+
+// Define timer for quiz 
+var timerCount = 180; // Set to three minutes
+var pauseCount = 1;
 
 
 // Define functions
 $(document).ready(function() {
 
+    // Define the timer function
     function countDown() {
-        console.log("CLICK");
-        console.log(timerCount);
         $("#displayTimer").text("Time Left: " + timerCount);
 
         // Time interval for countdown
@@ -28,11 +50,28 @@ $(document).ready(function() {
             if (timerCount === 0) {
                 displayTimer.textContent = "Time's Up!";
                 clearInterval(timeInterval);
+                // Need to redirect window to the form page to submit high score
             }
-        }, 1000);
+        }, 1000); // Time interval set to 1,000 milliseconds or 1 second
     }
 
+    // Define the function to pause before moving to next question
+    function questionPause() {
+
+        // Time interval for countdown
+        var timeInterval = setInterval(function() {
+            pauseCount--;
+            if (pauseCount === 0) {
+                clearInterval(timeInterval);
+                nextQuestion(); // Call function to go to next question
+            }
+        }, 1000); // Time interval set to 1,000 milliseconds or 1 second
+    }
+
+    // Define function to generate questions
     function generateQuestions() {
+
+        // Hide the start button and empty the main container holding the introductory text
         startButton.hide();
         mainTextContainer.empty();
 
@@ -41,47 +80,65 @@ $(document).ready(function() {
 
         // Insert text from questionandanswers array
         questionText.text(questionsAndAnswers[0].Question);
+
+        // Append created div to placeholder container
         quizContainer.append(questionText);
 
         quizContainer.append($("<br>"));
 
+        // Display user score with placeholder zero score 
         $("#score").text("Score: " + userScore);
 
         // For loop to generate answers
         var i;
         for (i = 0; i < questionsAndAnswers[0].Answers.length; i++) {
             var answerText = $("<button>"); // Create <button> element
-            answerText.addClass("answerContainer"); // Add specific class to created <button> element
-            answerText.text(questionsAndAnswers[0].Answers[i]); // Loop through and add text from answers array
+            answerText.addClass("answerContainer optionContainer"); // Add specific class to created <button> element
+            answerText.text(questionsAndAnswers[questionNumber].Answers[i]); // Loop through and add text from answers array
             quizContainer.append(answerText); // Append to container
 
         }
 
+        // Function to check selected answer against correct answer
         $(".answerContainer").on("click", function(e) {
-            console.log("clicked on answer");
+
+            // Adding class to selected answer (for manipulation later)
             $(this).addClass("selectContainer");
-            console.log(this);
 
+            // Define variable for text content of the selected answer
             var selectedAnswer = e.target.innerHTML;
-            console.log(selectedAnswer);
 
+            // Checking if text content of selected answer matches that of the correct answer based on the questions and answers array
             if (selectedAnswer === questionsAndAnswers[0].Correct) {
                 console.log("Correct");
-                $(".selectContainer").css("background-color", "green");
-                userScore += 4;
-                $("#score").text("Score: " + userScore);
-                $(this).removeClass("selectContainer");
+                $(".selectContainer").css("background-color", "green"); // Change color of element to green if correct
+                userScore += 4; // Add 4 points to user score
+                $("#score").text("Score: " + userScore); // Update user score
+                $(this).removeClass("selectContainer"); // Remove the class added so it does not change color any more
+                questionNumber++;
+                questionPause(); // Pause before moving to next question
 
             } else {
                 console.log("Wrong");
                 $(".selectContainer").css("background-color", "red");
                 $(this).removeClass("selectContainer");
                 timerCount -= 10;
-
+                questionNumber++;
+                questionPause(); // Pause before moving to next question
             }
         })
+
     }
 
+    // Define function to get to the next question
+    function nextQuestion() {
+        // Clear the placeholder container
+        quizContainer.empty();
+        console.log(questionsAndAnswers[questionNumber].Question);
+        // Run generate question function again but for the next question in the array
+
+
+    }
 
 
     // Call functions

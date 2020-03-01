@@ -47,4 +47,13 @@ h1 {
     height: 3rem;
 }
 
+.optionContainer {
+    width: 100%;
+    border: solid blue 1px;
+    background-color: lightblue;
+    text-align: left;
+    margin-top: 1rem;
+    height: 3rem;
+}
+
 .container {}
