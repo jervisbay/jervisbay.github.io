@@ -9,9 +9,9 @@ var questionNumber = 0;
 // Define Array to hold Questions and Answers
 
 var questionsAndAnswers = [{
-    Question: "What is this?",
-    Answers: ["xxx", "yyy", "bbb", "ccc"],
-    Correct: "xxx",
+    Question: "Which Democratic primary states has Joe Biden won?",
+    Answers: ["South Carolina", "Nevada", "Iowa", "New Hampshire"],
+    Correct: "South Carolina",
 }, {
     Question: "Who is this?",
     Answers: ["xxx", "yyy", "bbb", "ccc"],
@@ -31,7 +31,7 @@ var questionsAndAnswers = [{
 }]
 
 // Define timer for quiz 
-var timerCount = 180; // Set to three minutes
+var timerCount = 10; // Set to three minutes
 var pauseCount = 1;
 
 
@@ -47,10 +47,13 @@ $(document).ready(function() {
             timerCount--;
             $("#displayTimer").text("Time Left: " + timerCount);
 
-            if (timerCount === 0) {
-                displayTimer.textContent = "Time's Up!";
+            if (timerCount === 0 || timerCount < 0) {
+
                 clearInterval(timeInterval);
+                localStorage.setItem("score", userScore);
+                alert("Time's Up!");
                 // Need to redirect window to the form page to submit high score
+                window.location.href = "submitscore.html";
             }
         }, 1000); // Time interval set to 1,000 milliseconds or 1 second
     }
@@ -68,6 +71,7 @@ $(document).ready(function() {
         }, 1000); // Time interval set to 1,000 milliseconds or 1 second
     }
 
+
     // Define function to generate questions
     function generateQuestions() {
 
@@ -79,7 +83,8 @@ $(document).ready(function() {
         var questionText = $("<div>");
 
         // Insert text from questionandanswers array
-        questionText.text(questionsAndAnswers[0].Question);
+        questionText.addClass("questionContainer");
+        questionText.text(questionsAndAnswers[questionNumber].Question);
 
         // Append created div to placeholder container
         quizContainer.append(questionText);
@@ -93,10 +98,9 @@ $(document).ready(function() {
         var i;
         for (i = 0; i < questionsAndAnswers[0].Answers.length; i++) {
             var answerText = $("<button>"); // Create <button> element
-            answerText.addClass("answerContainer optionContainer"); // Add specific class to created <button> element
+            answerText.addClass("answerContainer"); // Add specific class to created <button> element
             answerText.text(questionsAndAnswers[questionNumber].Answers[i]); // Loop through and add text from answers array
             quizContainer.append(answerText); // Append to container
-
         }
 
         // Function to check selected answer against correct answer
@@ -109,7 +113,7 @@ $(document).ready(function() {
             var selectedAnswer = e.target.innerHTML;
 
             // Checking if text content of selected answer matches that of the correct answer based on the questions and answers array
-            if (selectedAnswer === questionsAndAnswers[0].Correct) {
+            if (selectedAnswer === questionsAndAnswers[questionNumber].Correct) {
                 console.log("Correct");
                 $(".selectContainer").css("background-color", "green"); // Change color of element to green if correct
                 userScore += 4; // Add 4 points to user score
@@ -127,18 +131,64 @@ $(document).ready(function() {
                 questionPause(); // Pause before moving to next question
             }
         })
-
     }
 
     // Define function to get to the next question
     function nextQuestion() {
-        // Clear the placeholder container
         quizContainer.empty();
-        console.log(questionsAndAnswers[questionNumber].Question);
-        // Run generate question function again but for the next question in the array
+        var questionText = $("<div>");
+
+        // Insert text from questionandanswers array
+        questionText.addClass("questionContainer");
+        questionText.text(questionsAndAnswers[questionNumber].Question);
+
+        // Append created div to placeholder container
+        quizContainer.append(questionText);
+
+        quizContainer.append($("<br>"));
+
+        var i;
+        for (i = 0; i < questionsAndAnswers[0].Answers.length; i++) {
 
 
+            var answerText = $("<button>"); // Create <button> element
+            answerText.addClass("answerContainer"); // Add specific class to created <button> element
+            answerText.text(questionsAndAnswers[questionNumber].Answers[i]); // Loop through and add text from answers array
+            quizContainer.append(answerText); // Append to container
+
+        }
+        $(".answerContainer").on("click", function(e) {
+
+            // Adding class to selected answer (for manipulation later)
+            $(this).addClass("selectContainer");
+
+            // Define variable for text content of the selected answer
+            var selectedAnswer = e.target.innerHTML;
+
+            // Checking if text content of selected answer matches that of the correct answer based on the questions and answers array
+            if (selectedAnswer === questionsAndAnswers[questionNumber].Correct) {
+                console.log("Correct");
+                $(".selectContainer").css("background-color", "green"); // Change color of element to green if correct
+                userScore += 4; // Add 4 points to user score
+                $("#score").text("Score: " + userScore); // Update user score
+                $(this).removeClass("selectContainer"); // Remove the class added so it does not change color any more
+                questionNumber++;
+                questionPause(); // Pause before moving to next question
+
+            } else {
+                console.log("Wrong");
+                $(".selectContainer").css("background-color", "red");
+                $(this).removeClass("selectContainer");
+                timerCount -= 10;
+                questionNumber++;
+                questionPause(); // Pause before moving to next question
+            }
+        })
     }
+
+
+
+
 
 
     // Call functions

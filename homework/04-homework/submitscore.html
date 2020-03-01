@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz Questions</title>
+    <title>Submit Score</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -16,14 +16,28 @@
 
 <body>
     <div class="spacer-row"></div>
-    <h1>Quiz Question</h1>
+    <h1>Quiz Over!</h1>
 
     <div class="container">
-        <div>
-            <p id="displayTimer">Time Left:</p>
+        <div class="row">
+            <div class="col">
+                <form>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Enter Name Here"><br>
+                    <br>
+                    <input id="scoreSubmit" type="submit" value="Submit">
+                </form>
+            </div>
+            <div class="col">
+                <h4 id="scoreObtained" class="align-center">Score Here</h4>
+            </div>
         </div>
     </div>
-    <script src="script.js"></script>
+
+
+
+
+    <script src="score.js"></script>
 </body>
 
 </html>
