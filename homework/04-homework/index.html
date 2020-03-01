@@ -19,10 +19,14 @@
     <h1>Coding Challenge!</h1>
 
     <div class="container introText">
+
         This is a timed code quiz that comprises five questions. You will be given three minutes to answer all the questions. However, each wrong answer will cost you 10 seconds. The challenge ends when either the clock runs out or all questions are answered.
         Each correct answer is worth 4 points.
     </div>
 
+    <div class="container" id="quizQuestions"></div>
+
+    <div class="spacer-row"></div>
     <div class="spacer-row"></div>
 
     <div class="container align-center">
@@ -30,14 +34,15 @@
     </div>
 
     <div class="spacer-row"></div>
+    
     <div class="container">
-<div>
-    <p id="displayTimer">Time Left:</p>
-</div>
-
-
+        <p id="score">Score:</p>
     </div>
     
+    <div class="spacer-row"></div>
+    <div class="container">
+        <p id="displayTimer">Time Left:</p>
+    </div>
     
     
     <script src="script.js"></script>
