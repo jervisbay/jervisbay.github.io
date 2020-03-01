@@ -1,4 +1,3 @@
-var userNameInput = $("#name");
 var submitButton = $("#scoreSubmit");
 
 $(document).ready(function() {
@@ -7,9 +6,12 @@ $(document).ready(function() {
     $("#scoreObtained").text(localStorage.getItem("score"));
 
     submitButton.on("click", function(event) {
+
         event.preventDefault();
-        var userName = userNameInput.value;
-        localStorage.setItem("username", JSON.stringify(userName));
+        var userNameInput = $("#name").val();
+        console.log(userNameInput);
+        localStorage.setItem("username", JSON.stringify(userNameInput));
+        window.location.href = "highscore.html";
 
     })
 
