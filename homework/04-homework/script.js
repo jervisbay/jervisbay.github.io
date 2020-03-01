@@ -154,7 +154,7 @@ $(document).ready(function() {
                 // Remove the class added so it does not change color any more
                 // $(this).removeClass("selectContainer"); 
 
-                timerCount -= 10; // Deduct time from timer for wrong answer
+                timerCount -= 30; // Deduct time from timer for wrong answer
                 questionNumber++; // Increment question number
                 questionPause(); // Pause before moving to next question
                 quizContainer.empty();
