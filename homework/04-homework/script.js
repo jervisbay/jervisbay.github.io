@@ -40,6 +40,7 @@ $(document).ready(function() {
 
     // Define the timer function
     function countDown() {
+        alert("You have 3 minutes to finish the quiz.  Good Luck!");
         $("#displayTimer").text("Time Left: " + timerCount);
 
         // Time interval for countdown
