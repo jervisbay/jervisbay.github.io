@@ -1,4 +1,4 @@
-h1 {
+h2 {
     text-align: center;
     margin: auto;
     margin-bottom: 1rem;
@@ -6,7 +6,7 @@ h1 {
     width: 80%;
     background-color: blanchedalmond;
     height: 4rem;
-    padding-top: 4px;
+    padding-top: 8px;
 }
 
 .spacer-row {
