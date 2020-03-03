@@ -17,11 +17,11 @@ var questionsAndAnswers = [{
     Answers: ["Beijing", "Atlanta", "Paris", "Tokyo"],
     Correct: "Tokyo",
 }, {
-    Question: "Which movie was the Oscar for Best Movie in 2020?",
+    Question: "Which movie won the Oscar for Best Movie in 2020?",
     Answers: ["Titanic", "Once Upon a Time in Hollywood", "Parasite", "1917"],
     Correct: "Parasite",
 }, {
-    Question: "Which team was the UEFA Champions League in 2019?",
+    Question: "Which team won the UEFA Champions League in 2019?",
     Answers: ["PSG", "Real Madrid", "Liverpool", "Barcelona"],
     Correct: "Liverpool",
 }, {
