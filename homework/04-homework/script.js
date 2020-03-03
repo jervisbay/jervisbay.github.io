@@ -35,7 +35,7 @@ var timerCount = 180; // Set to three minutes
 var pauseCount = 1;
 
 
-// Define functions
+// Begin document listener
 $(document).ready(function() {
 
     // Define the timer function
@@ -62,28 +62,13 @@ $(document).ready(function() {
         }, 1000); // Time interval set to 1,000 milliseconds or 1 second
     }
 
-    // Define the function to pause before moving to next question
-    function questionPause() {
-
-        // Time interval for countdown
-        var timeInterval = setInterval(function() {
-            pauseCount--;
-            if (pauseCount === 0) {
-                clearInterval(timeInterval);
-
-
-            }
-        }, 1000); // Time interval set to 1,000 milliseconds or 1 second
-    }
-
-
     // Define function to generate questions
     function generateQuestions() {
 
         console.log(questionNumber);
         // If question number is more than 5, stop the quiz and go to submit score page
         if (questionNumber === 5) {
-            alert("End of Quiz");
+            alert("End of Quiz.  You scored " + userScore + " points!");
             localStorage.setItem("score", userScore);
             window.location.href = "submitscore.html";
         }
@@ -92,8 +77,6 @@ $(document).ready(function() {
         mainTextContainer.empty();
 
         // Create div to hold question
-
-
         var questionText = $("<div>");
 
         // Insert text from questionandanswers array
@@ -101,10 +84,8 @@ $(document).ready(function() {
         questionText.text(questionsAndAnswers[questionNumber].Question);
 
         // Append created div to placeholder container
-
         quizContainer.append(questionText);
-
-        quizContainer.append($("<br>"));
+        quizContainer.append($("<br>")); // Spacing for formatting purpose
 
         // Display user score with placeholder zero score 
         $("#score").text("Score: " + userScore);
@@ -117,7 +98,8 @@ $(document).ready(function() {
             answerText.text(questionsAndAnswers[questionNumber].Answers[i]); // Loop through and add text from answers array, based on current question number
             quizContainer.append(answerText); // Append to container
         }
-        // Function to check selected answer against correct answer
+
+        // Function to check selected answer against correct answer when answer is clicked
         $(".answerContainer").on("click", function(e) {
 
             // Adding class to selected answer (for manipulation later)
@@ -128,10 +110,10 @@ $(document).ready(function() {
 
             // Checking if text content of selected answer matches that of the correct answer based on the questions and answers array
             if (selectedAnswer === questionsAndAnswers[questionNumber].Correct) {
-                alert("Correct!");
+                // alert("Correct!");
 
                 // Change color of element to green if correct
-                // $(".selectContainer").css("background-color", "green"); 
+                $(".selectContainer").css("background-color", "green");
 
                 // Remove the class added so it does not change color any more
                 // $(this).removeClass("selectContainer"); 
@@ -141,50 +123,38 @@ $(document).ready(function() {
 
 
                 questionNumber++; // Increment question number
-                questionPause(); // Pause before moving to next question
-                quizContainer.empty();
-                generateQuestions();
+
+                // Set 1 second pause before clearing container and generating next question
+                setTimeout(function() {
+                    quizContainer.empty();
+                    generateQuestions();
+                }, 1000)
 
             } else {
-                alert("Wrong!");
+                // alert("Wrong!");
 
                 // Change color of element to red if wrong
-                // $(".selectContainer").css("background-color", "red"); 
+                $(".selectContainer").css("background-color", "red");
 
                 // Remove the class added so it does not change color any more
                 // $(this).removeClass("selectContainer"); 
 
                 timerCount -= 30; // Deduct time from timer for wrong answer
                 questionNumber++; // Increment question number
-                questionPause(); // Pause before moving to next question
-                quizContainer.empty();
-                generateQuestions();
+
+                // Set 1 second pause before clearing container and generating next question
+                setTimeout(function() {
+                    quizContainer.empty();
+                    generateQuestions();
+                }, 1000)
             }
         })
 
     }
 
-    // Define function to get to the next question
-    function nextQuestion() {
-        console.log(questionNumber);
-        // If question number is more than 5, stop the quiz and go to submit score page
-        if (questionNumber > 5) {
-            alert("End of Quiz");
-            window.location.href = "submitscore.html";
-        }
-        // Otherwise generate next set of questions
-        else {
-            generateQuestions();
-        }
-    }
-
-
-
     // Call functions
-
     startButton.on("click", countDown);
     startButton.on("click", generateQuestions);
-
 
 
     // End of document listener
