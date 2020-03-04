@@ -110,43 +110,34 @@ $(document).ready(function() {
 
             // Checking if text content of selected answer matches that of the correct answer based on the questions and answers array
             if (selectedAnswer === questionsAndAnswers[questionNumber].Correct) {
-                // alert("Correct!");
 
                 // Change color of element to green if correct
                 $(".selectContainer").css("background-color", "green");
 
-                // Remove the class added so it does not change color any more
-                // $(this).removeClass("selectContainer"); 
-
                 userScore += 4; // Add 4 points to user score
                 $("#score").text("Score: " + userScore); // Update user score
 
-
                 questionNumber++; // Increment question number
 
-                // Set 1 second pause before clearing container and generating next question
+                // Set half second pause before clearing container and generating next question
                 setTimeout(function() {
                     quizContainer.empty();
                     generateQuestions();
-                }, 1000)
+                }, 500)
 
             } else {
-                // alert("Wrong!");
 
                 // Change color of element to red if wrong
                 $(".selectContainer").css("background-color", "red");
 
-                // Remove the class added so it does not change color any more
-                // $(this).removeClass("selectContainer"); 
-
                 timerCount -= 30; // Deduct time from timer for wrong answer
                 questionNumber++; // Increment question number
 
-                // Set 1 second pause before clearing container and generating next question
+                // Set half second pause before clearing container and generating next question
                 setTimeout(function() {
                     quizContainer.empty();
                     generateQuestions();
-                }, 1000)
+                }, 500)
             }
         })
 
