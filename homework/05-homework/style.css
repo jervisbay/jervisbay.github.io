@@ -78,14 +78,13 @@ textarea {
 }
 
 .time-col {
-    border-left: blue 1px solid;
-    border-right: blue 1px solid;
     text-align: center;
     background-color: khaki;
+    font-weight: bolder;
 }
 
 .col {
-    padding-top: 1.6rem;
+    /* padding-top: 1.6rem; */
     height: 100%;
 }
 
@@ -102,4 +101,17 @@ textarea {
 .event-col {
     padding-top: 0px;
     padding-bottom: 0px;
+    outline: none;
+}
+
+#start-new-day {
+    margin: auto;
+}
+
+.no-outline {
+    outline: none;
+}
+
+.eventFilled {
+    background-color: rgb(171, 207, 171);
 }
