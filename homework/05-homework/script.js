@@ -1,30 +1,47 @@
-var mainContainer = $("#main-container");
-
-// Start of document listner
+// Start of document listener
 $(document).ready(function() {
 
+    // Render events from local storage so that prior events appear
     renderEvents();
-    addClearButtons();
 
-
+    // Add done buttons for each event time that has an event filled in
+    addDoneButtons();
 
     // Define function to create the done button once text is entered and submitted
-    // Need to prevent more instances of button creation
     $(".event-col").on("keypress", function(e) {
-        if (e.which === 13) {
-            console.log("submit!");
-            console.log(e.target.id);
-            var event = $("#" + e.target.id);
-            console.log(event[0].value);
-            localStorage.setItem(e.target.id, event[0].value);
-            var clearButton = $("<button>");
-            clearButton.addClass("clearButton");
-            clearButton.text("Done!");
-            console.log(e.target.parentNode.classList[2]);
-            $("." + e.target.parentNode.classList[2]).append(clearButton);
-            $("#" + e.target.id).css("background-color", "rgb(171, 207, 171)");
-        }
 
+        // If keypress ie "enter" (code 13)...
+        if (e.which === 13) {
+
+            // Define variable to store value of text within input element
+            var event = $("#" + e.target.id);
+
+            // Send variable to local storage with key being the ID (which would show the respective time of day)
+            localStorage.setItem(e.target.id, event[0].value);
+
+            // Define variable to store the row that contains the input element where text was being entered
+            var selectedInput = e.target.parentElement;
+
+            // If row already has a button element (which would be an additional childNode)...
+            if (selectedInput.childNodes[5]) {
+                return;
+            }
+            // Otherwise...
+            else {
+                // Create button element
+                var doneButton = $("<button>");
+                // Add class to created button for manipulation after
+                doneButton.addClass("doneButton");
+                // Add text to created button element
+                doneButton.text("Done!");
+
+                // Append button element to container row
+                $("." + e.target.parentElement.classList[2]).append(doneButton);
+
+                // Change background color of the input element in which text was entered
+                $("#" + e.target.id).css("background-color", "rgb(171, 207, 171)");
+            }
+        }
     });
 
 
@@ -41,92 +58,89 @@ $(document).ready(function() {
 
     }
 
+    // Define function to add the done button whenever there is text in the input field, whenever page is loaded / refreshed
+    function addDoneButtons() {
 
-    // Define function to add the done button whenever there is text in the input field
-    function addClearButtons() {
-        console.log("add button");
         if (localStorage.getItem("nineAM") !== null) {
-            console.log("nine");
-            var clearButton = $("<button>");
-            clearButton.addClass("clearButton");
-            clearButton.text("Done!");
-            $(".nineRow").append(clearButton);
+            var doneButton = $("<button>");
+            doneButton.addClass("doneButton");
+            doneButton.text("Done!");
+            $(".nineRow").append(doneButton);
             $("#nineAM").addClass("eventFilled");
         }
         if (localStorage.getItem("tenAM") !== null) {
-            console.log("ten");
-            var clearButton = $("<button>");
-            clearButton.addClass("clearButton");
-            clearButton.text("Done!");
-            $(".tenRow").append(clearButton);
+            var doneButton = $("<button>");
+            doneButton.addClass("doneButton");
+            doneButton.text("Done!");
+            $(".tenRow").append(doneButton);
             $("#tenAM").addClass("eventFilled");
         }
         if (localStorage.getItem("elevenAM") !== null) {
-            var clearButton = $("<button>");
-            clearButton.addClass("clearButton");
-            clearButton.text("Done!");
-            $(".elevenRow").append(clearButton);
+            var doneButton = $("<button>");
+            doneButton.addClass("doneButton");
+            doneButton.text("Done!");
+            $(".elevenRow").append(doneButton);
             $("#elevenAM").addClass("eventFilled");
         }
         if (localStorage.getItem("twelvePM") !== null) {
-            var clearButton = $("<button>");
-            clearButton.addClass("clearButton");
-            clearButton.text("Done!");
-            $(".twelveRow").append(clearButton);
+            var doneButton = $("<button>");
+            doneButton.addClass("doneButton");
+            doneButton.text("Done!");
+            $(".twelveRow").append(doneButton);
             $("#twelvePM").addClass("eventFilled");
         }
         if (localStorage.getItem("onePM") !== null) {
-            var clearButton = $("<button>");
-            clearButton.addClass("clearButton");
-            clearButton.text("Done!");
-            $(".oneRow").append(clearButton);
+            var doneButton = $("<button>");
+            doneButton.addClass("doneButton");
+            doneButton.text("Done!");
+            $(".oneRow").append(doneButton);
             $("#onePM").addClass("eventFilled");
         }
         if (localStorage.getItem("twoPM") !== null) {
-            var clearButton = $("<button>");
-            clearButton.addClass("clearButton");
-            clearButton.text("Done!");
-            $(".twoRow").append(clearButton);
+            var doneButton = $("<button>");
+            doneButton.addClass("doneButton");
+            doneButton.text("Done!");
+            $(".twoRow").append(doneButton);
             $("#twoPM").addClass("eventFilled");
         }
         if (localStorage.getItem("threePM") !== null) {
-            var clearButton = $("<button>");
-            clearButton.addClass("clearButton");
-            clearButton.text("Done!");
-            $(".threeRow").append(clearButton);
+            var doneButton = $("<button>");
+            doneButton.addClass("doneButton");
+            doneButton.text("Done!");
+            $(".threeRow").append(doneButton);
             $("#threePM").addClass("eventFilled");
         }
         if (localStorage.getItem("fourPM") !== null) {
-            var clearButton = $("<button>");
-            clearButton.addClass("clearButton");
-            clearButton.text("Done!");
-            $(".fourRow").append(clearButton);
+            var doneButton = $("<button>");
+            doneButton.addClass("doneButton");
+            doneButton.text("Done!");
+            $(".fourRow").append(doneButton);
             $("#fourPM").addClass("eventFilled");
         }
-
     }
 
+    // Define event listener for on click on done button to remove parent text
+    $(document).on("click", ".doneButton", function(e) {
 
+        // Removing text from input element (sibling to the done button being clicked)
+        this.parentNode.childNodes[3].value = "";
 
-    // Need event listener for on click on clear button to remove parent text
-    $(".clearButton").on("click", function(e) {
-        console.log("clear field");
-        console.log(e.target.classList[1]); // Struggling here to traverse to right element
+        // Change background color back to white
+        $(this.parentNode.childNodes[3]).css("background-color", "white");
 
+        // Remove event from local storage (the input element IDs are being used as keys)
+        localStorage.removeItem(this.parentNode.childNodes[3].id)
 
-    })
-
-
-    // Define new day function to clear local storage and reload page to remove coloring and "done" buttons
-
-    $("#start-new-day").on("click", function() {
-        localStorage.clear();
+        // Refresh page so no done buttons are created on the elements in which events were just cleared from
         location.reload();
     })
 
 
-
-
+    // Define new day function to clear local storage and reload page to remove coloring and "done" buttons
+    $("#start-new-day").on("click", function() {
+        localStorage.clear();
+        location.reload();
+    })
 
 
 
