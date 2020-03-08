@@ -22,47 +22,53 @@
     </header>
     <div class="container" id="main-container">
         <!-- Timeblocks go here -->
+
+        <!-- Each container row has a class which contains the time itself  -->
         <div class="row calendar-row nineRow">
             <div class="col-2 col time-col d-flex align-items-center justify-content-center">9:00 AM</div>
-            <input type="text" class="col event-col no-outline" id="nineAM">
+
+            <!-- Each input field contains an ID which contains the time itself -->
+            <input type="text" class="col event-col no-outline" id="nineHour">
         </div>
 
         <div class="row calendar-row tenRow">
             <div class="col-2 col time-col d-flex align-items-center justify-content-center">10:00 AM</div>
-            <input type="text" class="col event-col no-outline" id="tenAM">
+            <input type="text" class="col event-col no-outline" id="tenHour">
         </div>
 
         <div class="row calendar-row elevenRow">
             <div class="col-2 col time-col d-flex align-items-center justify-content-center">11:00 AM</div>
-            <input type="text" class="col event-col no-outline" id="elevenAM">
+            <input type="text" class="col event-col no-outline" id="elevenHour">
         </div>
 
         <div class="row calendar-row twelveRow">
             <div class="col-2 col time-col d-flex align-items-center justify-content-center">12:00 PM</div>
-            <input type="text" class="col event-col no-outline" id="twelvePM">
+            <input type="text" class="col event-col no-outline" id="twelveHour">
         </div>
 
-        <div class="row calendar-row oneRow">
+        <div class="row calendar-row thirteenRow">
             <div class="col-2 col time-col d-flex align-items-center justify-content-center">1:00 PM</div>
-            <input type="text" class="col event-col no-outline" id="onePM">
+            <input type="text" class="col event-col no-outline" id="thirteenHour">
         </div>
 
-        <div class="row calendar-row twoRow">
+        <div class="row calendar-row fourteenRow">
             <div class="col-2 col time-col d-flex align-items-center justify-content-center">2:00 PM</div>
-            <input type="text" class="col event-col no-outline" id="twoPM">
+            <input type="text" class="col event-col no-outline" id="fourteenHour">
         </div>
 
-        <div class="row calendar-row threeRow">
+        <div class="row calendar-row fifteenRow">
             <div class="col-2 col time-col d-flex align-items-center justify-content-center">3:00 PM</div>
-            <input type="text" class="col event-col no-outline" id="threePM">
+            <input type="text" class="col event-col no-outline" id="fifteenHour">
         </div>
 
-        <div class="row calendar-row fourRow">
+        <div class="row calendar-row sixteenRow">
             <div class="col-2 col time-col d-flex align-items-center justify-content-center">4:00 PM</div>
-            <input type="text" class="col event-col no-outline" id="fourPM">
+            <input type="text" class="col event-col no-outline" id="sixteenHour">
         </div>
 
         <br>
+
+        <!-- Button to clear page and local storage and start a new day -->
         <button type="button" class="btn btn-primary d-flex justify-content-center" id="start-new-day">Start New Day</button>
 
     </div>

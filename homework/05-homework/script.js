@@ -1,3 +1,6 @@
+// Define array to store all the hours that would show in the schedule, each of these items in the array will be used as part of class and ID tags as well
+var hoursArray = ["nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen"];
+
 // Start of document listener
 $(document).ready(function() {
 
@@ -25,16 +28,18 @@ $(document).ready(function() {
             // If row already has a button element (which would be an additional childNode)...
             if (selectedInput.childNodes[5]) {
 
+                // Define variable to get current time
                 var currentTime = new Date(Date.now());
                 var formattedTime = currentTime.getHours() + ":" + currentTime.getMinutes();
 
+                // Define variable to contain edited text and the current time; add class for CSS formatting purpose
                 var editTag = $("<p></p>").text("...edited, " + formattedTime);
                 editTag.addClass("edited align-items-center");
 
+                // Append variable to the container row
                 $("." + e.target.parentNode.classList[2]).append(editTag);
-
-
             }
+
             // Otherwise...
             else {
                 // Create button element
@@ -47,7 +52,7 @@ $(document).ready(function() {
                 // Append button element to container row
                 $("." + e.target.parentElement.classList[2]).append(doneButton);
 
-                // Change background color of the input element in which text was entered
+                // Change background color to green of the input element in which text was entered
                 $("#" + e.target.id).css("background-color", "rgb(171, 207, 171)");
             }
         }
@@ -56,75 +61,31 @@ $(document).ready(function() {
 
     // Define function to get items from local storage and fill according to time whenever page is loaded
     function renderEvents() {
-        $("#nineAM").val(localStorage.getItem("nineAM"));
-        $("#tenAM").val(localStorage.getItem("tenAM"));
-        $("#elevenAM").val(localStorage.getItem("elevenAM"));
-        $("#twelvePM").val(localStorage.getItem("twelvePM"));
-        $("#onePM").val(localStorage.getItem("onePM"));
-        $("#twoPM").val(localStorage.getItem("twoPM"));
-        $("#threePM").val(localStorage.getItem("threePM"));
-        $("#fourPM").val(localStorage.getItem("fourPM"));
-
+        var i;
+        for (i = 0; i < hoursArray.length; i++) {
+            $("#" + hoursArray[i] + "Hour").val(localStorage.getItem(hoursArray[i] + "Hour"));
+        }
     }
 
     // Define function to add the done button whenever there is text in the input field, whenever page is loaded / refreshed
     function addDoneButtons() {
 
-        if (localStorage.getItem("nineAM") !== null) {
-            var doneButton = $("<button>");
-            doneButton.addClass("doneButton");
-            doneButton.text("Done!");
-            $(".nineRow").append(doneButton);
-            $("#nineAM").addClass("eventFilled");
-        }
-        if (localStorage.getItem("tenAM") !== null) {
-            var doneButton = $("<button>");
-            doneButton.addClass("doneButton");
-            doneButton.text("Done!");
-            $(".tenRow").append(doneButton);
-            $("#tenAM").addClass("eventFilled");
-        }
-        if (localStorage.getItem("elevenAM") !== null) {
-            var doneButton = $("<button>");
-            doneButton.addClass("doneButton");
-            doneButton.text("Done!");
-            $(".elevenRow").append(doneButton);
-            $("#elevenAM").addClass("eventFilled");
-        }
-        if (localStorage.getItem("twelvePM") !== null) {
-            var doneButton = $("<button>");
-            doneButton.addClass("doneButton");
-            doneButton.text("Done!");
-            $(".twelveRow").append(doneButton);
-            $("#twelvePM").addClass("eventFilled");
-        }
-        if (localStorage.getItem("onePM") !== null) {
-            var doneButton = $("<button>");
-            doneButton.addClass("doneButton");
-            doneButton.text("Done!");
-            $(".oneRow").append(doneButton);
-            $("#onePM").addClass("eventFilled");
-        }
-        if (localStorage.getItem("twoPM") !== null) {
-            var doneButton = $("<button>");
-            doneButton.addClass("doneButton");
-            doneButton.text("Done!");
-            $(".twoRow").append(doneButton);
-            $("#twoPM").addClass("eventFilled");
-        }
-        if (localStorage.getItem("threePM") !== null) {
-            var doneButton = $("<button>");
-            doneButton.addClass("doneButton");
-            doneButton.text("Done!");
-            $(".threeRow").append(doneButton);
-            $("#threePM").addClass("eventFilled");
-        }
-        if (localStorage.getItem("fourPM") !== null) {
-            var doneButton = $("<button>");
-            doneButton.addClass("doneButton");
-            doneButton.text("Done!");
-            $(".fourRow").append(doneButton);
-            $("#fourPM").addClass("eventFilled");
+        // Create for loop to go through the hours array
+        var i;
+        for (i = 0; i < hoursArray.length; i++) {
+
+            // If local storage has a value for respective time key...
+            if (localStorage.getItem(hoursArray[i] + "Hour") !== null) {
+
+                // Create and append button to respective container
+                var doneButton = $("<button>");
+                doneButton.addClass("doneButton");
+                doneButton.text("Done!");
+                $("." + hoursArray[i] + "Row").append(doneButton);
+
+                // Add class to the input text field to change background color to green
+                $("#" + hoursArray[i] + "Hour").addClass("eventFilled");
+            }
         }
     }
 
@@ -140,9 +101,15 @@ $(document).ready(function() {
         // Remove event from local storage (the input element IDs are being used as keys)
         localStorage.removeItem(this.parentNode.childNodes[3].id)
 
+        // If the done button has no next element (which would be the "edited" tag)...
         if (e.target.nextElementSibling === null) {
+            // Remove the done button
             e.target.remove();
-        } else {
+        }
+        // Otherwise...
+        else {
+
+            // Remove the next element (which would be the "edited" tag) and the done button itself
             e.target.nextElementSibling.remove();
             e.target.remove();
         }
@@ -155,9 +122,6 @@ $(document).ready(function() {
         localStorage.clear();
         location.reload();
     })
-
-
-
 
 
 
