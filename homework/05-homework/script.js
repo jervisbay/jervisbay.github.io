@@ -24,7 +24,16 @@ $(document).ready(function() {
 
             // If row already has a button element (which would be an additional childNode)...
             if (selectedInput.childNodes[5]) {
-                return;
+
+                var currentTime = new Date(Date.now());
+                var formattedTime = currentTime.getHours() + ":" + currentTime.getMinutes();
+
+                var editTag = $("<p></p>").text("...edited, " + formattedTime);
+                editTag.addClass("edited align-items-center");
+
+                $("." + e.target.parentNode.classList[2]).append(editTag);
+
+
             }
             // Otherwise...
             else {
@@ -131,8 +140,13 @@ $(document).ready(function() {
         // Remove event from local storage (the input element IDs are being used as keys)
         localStorage.removeItem(this.parentNode.childNodes[3].id)
 
-        // Refresh page so no done buttons are created on the elements in which events were just cleared from
-        location.reload();
+        if (e.target.nextElementSibling === null) {
+            e.target.remove();
+        } else {
+            e.target.nextElementSibling.remove();
+            e.target.remove();
+        }
+
     })
 
 
