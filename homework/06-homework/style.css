@@ -1,0 +1,27 @@
+.jumbotron {
+    text-align: center;
+    background-color: blanchedalmond;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+.test {
+    /* border: black 1px solid; */
+    height: 800px;
+}
+
+.city-search {
+    margin-left: 1rem;
+    background-color: rgb(243, 243, 243);
+}
+
+.city-box {
+    border: lightgray 1px solid;
+    height: 200px;
+}
+
+.card {
+    width: 7rem;
+    background-color: rgb(119, 166, 253);
+    margin-left: 2px;
+}

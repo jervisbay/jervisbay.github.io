@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <title>Weather Dashboard</title>
+</head>
+
+<body>
+    <div class="jumbotron">Weather Dashboard</div>
+    <div class="row">
+        <div class="col-1"></div>
+
+        <!-- Left side bar elements -->
+        <div class="col-3 city-search test">
+            <form>
+                <p>Search for a City:</p>
+                <input type="text" placeholder="City">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+            <br>
+            <p id="recent-search-1"></p>
+            <p id="recent-search-2"></p>
+            <p id="recent-search-3"></p>
+            <p id="recent-search-4"></p>
+            <p id="recent-search-5"></p>
+        </div>
+
+        <!-- Main container on the right elements -->
+        <div class="col-7 test">
+            <div class="city-box">
+                <h4 id="current-city">Selected City</h4>
+
+                <p>Temperature: <span id="current-temperature">Current Temperature</span></p>
+                <p>Humidity: <span id="current-humidity">Current Humidity</span></p>
+                <p>Wind Speed: <span id="current-wind-speed">Current Wind Speed</span></p>
+                <p>UV Index: <span id="current-UV-index">Current UV Index</span></p>
+            </div>
+            <br>
+            <h4>5-Day Forecast</h4>
+
+            <div class="container">
+                <div class="row">
+                    <div class="card">
+                        <div class="card-header">Day 1</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">Day 2</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">Day 3</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">Day 4</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">Day 5</div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+
+    </div>
+
+</body>
+
+</html>
