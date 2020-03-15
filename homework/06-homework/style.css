@@ -16,12 +16,27 @@
 }
 
 .city-box {
-    border: lightgray 1px solid;
     height: 200px;
 }
 
 .card {
     width: 7rem;
-    background-color: rgb(119, 166, 253);
+    background-color: rgb(147, 185, 255);
     margin-left: 2px;
+}
+
+#city-search-box {
+    margin-left: 1rem;
+    width: 70%;
+}
+
+.recent-search {
+    background-color: rgb(216, 216, 216);
+    padding-left: 1rem;
+    border: gray solid 1px;
+}
+
+#current-city {
+    margin-left: 1rem;
+    padding-top: 1.5rem;
 }
