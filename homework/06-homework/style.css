@@ -5,11 +5,6 @@
     font-weight: bolder;
 }
 
-.test {
-    /* border: black 1px solid; */
-    height: 800px;
-}
-
 .city-search {
     margin-left: 1rem;
     background-color: rgb(243, 243, 243);
@@ -21,8 +16,12 @@
 
 .card {
     width: 7rem;
-    background-color: rgb(147, 185, 255);
+    background-color: rgb(213, 228, 255);
     margin-left: 2px;
+}
+
+.card-header {
+    background-color: rgb(179, 205, 255);
 }
 
 #city-search-box {
@@ -31,9 +30,11 @@
 }
 
 .recent-search {
-    background-color: rgb(216, 216, 216);
+    background-color: white;
     padding-left: 1rem;
-    border: gray solid 1px;
+    padding-top: 0.75rem;
+    width: 80%;
+    height: 3rem;
 }
 
 #current-city {
