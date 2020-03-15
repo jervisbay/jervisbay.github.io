@@ -8,7 +8,7 @@ var currentHumidity = $("#current-humidity");
 var currentWindSpeed = $("#current-wind-speed");
 
 var currentDate = moment().format("MM/DD/YY");
-
+var weatherIcon = $("#weather-icon");
 
 // Document listener
 
@@ -45,9 +45,9 @@ $(document).ready(function() {
                 currentHumidity.text(response.main.humidity + "%");
                 currentWindSpeed.text(response.wind.speed);
 
-                var weatherIcon = $("<img>").attr({ alt: response.weather[0].main + " icon", src: "http://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png", height: "75px", width: "75px", });
+                weatherIcon.attr({ alt: response.weather[0].main + " icon", src: "http://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png" });
 
-                $(".main-row").append(weatherIcon);
+
 
             })
 
@@ -88,8 +88,9 @@ $(document).ready(function() {
         weatherIcon.attr("src", "");
         var searchCounter = parseInt(localStorage.length);
         var inputCity = $("#city-search-box").val();
+        var inputCityProper = inputCity.charAt(0).toUpperCase() + inputCity.slice(1).toLowerCase();
 
-        localStorage.setItem(searchCounter, inputCity);
+        localStorage.setItem(searchCounter, inputCityProper);
 
 
 
@@ -110,9 +111,7 @@ $(document).ready(function() {
                 currentHumidity.text(response.main.humidity + "%");
                 currentWindSpeed.text(response.wind.speed);
 
-                var weatherIcon = $("<img>").attr({ alt: response.weather[0].main + " icon", src: "http://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png", height: "75px", width: "75px", });
-
-                $(".main-row").append(weatherIcon);
+                weatherIcon.attr({ alt: response.weather[0].main + " icon", src: "http://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png" });
 
             })
     }
@@ -140,6 +139,7 @@ $(document).ready(function() {
                 currentHumidity.text(response.main.humidity + "%");
                 currentWindSpeed.text(response.wind.speed);
 
+                weatherIcon.attr({ alt: response.weather[0].main + " icon", src: "http://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png" });
 
             })
     }
