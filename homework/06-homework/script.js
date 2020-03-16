@@ -3,13 +3,20 @@ var currentTemperature = $("#current-temperature");
 var currentHumidity = $("#current-humidity");
 var currentWindSpeed = $("#current-wind-speed");
 
-// Define variables for dates
+// Define variables for dates to put into card headers
 var currentDate = moment().format("MM/DD/YY");
 var day1 = moment().add(1, "days").format("MM/DD/YY");
 var day2 = moment().add(2, "days").format("MM/DD/YY");
 var day3 = moment().add(3, "days").format("MM/DD/YY");
 var day4 = moment().add(4, "days").format("MM/DD/YY");
 var day5 = moment().add(5, "days").format("MM/DD/YY");
+
+// Define variables to match dt_txt of forecast api call
+var day1Match = moment().add(1, "days").format("YYYY-MM-DD") + " 00:00:00";
+var day2Match = moment().add(2, "days").format("YYYY-MM-DD") + " 00:00:00";
+var day3Match = moment().add(3, "days").format("YYYY-MM-DD") + " 00:00:00";
+var day4Match = moment().add(4, "days").format("YYYY-MM-DD") + " 00:00:00";
+var day5Match = moment().add(5, "days").format("YYYY-MM-DD") + " 00:00:00";
 
 // Define variable for the weather icon
 var weatherIcon = $("#weather-icon");
@@ -70,12 +77,38 @@ $(document).ready(function() {
             })
             .then(function(response) {
 
-                // For loop to replace text elements in 5 day forecast placeholders
+                // Run for loop to match forecast items against desired day
                 var i;
-                for (i = 0; i <= 4; i++) {
-                    $("#temperature" + i).text(Math.round((response.list[i].main.temp - 273.15) * 9 / 5 + 32) + "F");
-                    $("#humidity" + i).text(response.list[i].main.humidity + "%");
-                    $("#weatherPic" + i).attr({ alt: response.list[i].weather[0].main + " icon", src: "https://openweathermap.org/img/wn/" + response.list[i].weather[0].icon + "@2x.png" });
+                for (i = 0; i < response.list.length; i++) {
+                    if (response.list[i].dt_txt === day1Match) {
+                        $("#temperature1").text(Math.round((response.list[i].main.temp - 273.15) * 9 / 5 + 32) + "F");
+                        $("#humidity1").text(response.list[i].main.humidity + "%");
+                        $("#weatherPic1").attr({ alt: response.list[i].weather[0].main + " icon", src: "https://openweathermap.org/img/wn/" + response.list[i].weather[0].icon + "@2x.png" });
+                    }
+
+                    if (response.list[i].dt_txt === day2Match) {
+                        $("#temperature2").text(Math.round((response.list[i].main.temp - 273.15) * 9 / 5 + 32) + "F");
+                        $("#humidity2").text(response.list[i].main.humidity + "%");
+                        $("#weatherPic2").attr({ alt: response.list[i].weather[0].main + " icon", src: "https://openweathermap.org/img/wn/" + response.list[i].weather[0].icon + "@2x.png" });
+                    }
+
+                    if (response.list[i].dt_txt === day3Match) {
+                        $("#temperature3").text(Math.round((response.list[i].main.temp - 273.15) * 9 / 5 + 32) + "F");
+                        $("#humidity3").text(response.list[i].main.humidity + "%");
+                        $("#weatherPic3").attr({ alt: response.list[i].weather[0].main + " icon", src: "https://openweathermap.org/img/wn/" + response.list[i].weather[0].icon + "@2x.png" });
+                    }
+
+                    if (response.list[i].dt_txt === day4Match) {
+                        $("#temperature4").text(Math.round((response.list[i].main.temp - 273.15) * 9 / 5 + 32) + "F");
+                        $("#humidity4").text(response.list[i].main.humidity + "%");
+                        $("#weatherPic4").attr({ alt: response.list[i].weather[0].main + " icon", src: "https://openweathermap.org/img/wn/" + response.list[i].weather[0].icon + "@2x.png" });
+                    }
+
+                    if (response.list[i].dt_txt === day5Match) {
+                        $("#temperature5").text(Math.round((response.list[i].main.temp - 273.15) * 9 / 5 + 32) + "F");
+                        $("#humidity5").text(response.list[i].main.humidity + "%");
+                        $("#weatherPic5").attr({ alt: response.list[i].weather[0].main + " icon", src: "https://openweathermap.org/img/wn/" + response.list[i].weather[0].icon + "@2x.png" });
+                    }
                 }
             })
     }
@@ -115,6 +148,9 @@ $(document).ready(function() {
         // Define query URL for current weather api
         var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + inputCity + "&APPID=971a7ca92ec80b78e871903e2a5fb549";
 
+        // Define query URL for forecaset api
+        var forecastURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + inputCity + "&APPID=971a7ca92ec80b78e871903e2a5fb549";
+
         // Ajax call for current weather details (similar to ajax call earlier)
         $.ajax({
                 url: queryURL,
@@ -128,6 +164,48 @@ $(document).ready(function() {
                 currentWindSpeed.text(response.wind.speed + "mph");
                 weatherIcon.attr({ alt: response.weather[0].main + " icon", src: "http://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png" });
             })
+
+        // Ajax call for 5 day forecast (similar to above)
+        $.ajax({
+                url: forecastURL,
+                method: "GET"
+
+            })
+            .then(function(response) {
+
+                var i;
+                for (i = 0; i < response.list.length; i++) {
+                    if (response.list[i].dt_txt === day1Match) {
+                        $("#temperature1").text(Math.round((response.list[i].main.temp - 273.15) * 9 / 5 + 32) + "F");
+                        $("#humidity1").text(response.list[i].main.humidity + "%");
+                        $("#weatherPic1").attr({ alt: response.list[i].weather[0].main + " icon", src: "https://openweathermap.org/img/wn/" + response.list[i].weather[0].icon + "@2x.png" });
+                    }
+
+                    if (response.list[i].dt_txt === day2Match) {
+                        $("#temperature2").text(Math.round((response.list[i].main.temp - 273.15) * 9 / 5 + 32) + "F");
+                        $("#humidity2").text(response.list[i].main.humidity + "%");
+                        $("#weatherPic2").attr({ alt: response.list[i].weather[0].main + " icon", src: "https://openweathermap.org/img/wn/" + response.list[i].weather[0].icon + "@2x.png" });
+                    }
+
+                    if (response.list[i].dt_txt === day3Match) {
+                        $("#temperature3").text(Math.round((response.list[i].main.temp - 273.15) * 9 / 5 + 32) + "F");
+                        $("#humidity3").text(response.list[i].main.humidity + "%");
+                        $("#weatherPic3").attr({ alt: response.list[i].weather[0].main + " icon", src: "https://openweathermap.org/img/wn/" + response.list[i].weather[0].icon + "@2x.png" });
+                    }
+
+                    if (response.list[i].dt_txt === day4Match) {
+                        $("#temperature4").text(Math.round((response.list[i].main.temp - 273.15) * 9 / 5 + 32) + "F");
+                        $("#humidity4").text(response.list[i].main.humidity + "%");
+                        $("#weatherPic4").attr({ alt: response.list[i].weather[0].main + " icon", src: "https://openweathermap.org/img/wn/" + response.list[i].weather[0].icon + "@2x.png" });
+                    }
+
+                    if (response.list[i].dt_txt === day5Match) {
+                        $("#temperature5").text(Math.round((response.list[i].main.temp - 273.15) * 9 / 5 + 32) + "F");
+                        $("#humidity5").text(response.list[i].main.humidity + "%");
+                        $("#weatherPic5").attr({ alt: response.list[i].weather[0].main + " icon", src: "https://openweathermap.org/img/wn/" + response.list[i].weather[0].icon + "@2x.png" });
+                    }
+                }
+            })
     }
 
     // Define function to display weather when a recent searched city is clicked on
@@ -135,8 +213,9 @@ $(document).ready(function() {
 
         var inputCity = event.target.textContent;
         var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + inputCity + "&APPID=971a7ca92ec80b78e871903e2a5fb549";
+        var forecastURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + inputCity + "&APPID=971a7ca92ec80b78e871903e2a5fb549";
 
-        // Ajax call same as above
+        // Ajax calls same as above
         $.ajax({
                 url: queryURL,
                 method: "GET",
@@ -148,6 +227,46 @@ $(document).ready(function() {
                 currentHumidity.text(response.main.humidity + "%");
                 currentWindSpeed.text(response.wind.speed + "mph");
                 weatherIcon.attr({ alt: response.weather[0].main + " icon", src: "http://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png" });
+            })
+
+        $.ajax({
+                url: forecastURL,
+                method: "GET"
+            })
+            .then(function(response) {
+
+                var i;
+                for (i = 0; i < response.list.length; i++) {
+                    if (response.list[i].dt_txt === day1Match) {
+                        $("#temperature1").text(Math.round((response.list[i].main.temp - 273.15) * 9 / 5 + 32) + "F");
+                        $("#humidity1").text(response.list[i].main.humidity + "%");
+                        $("#weatherPic1").attr({ alt: response.list[i].weather[0].main + " icon", src: "https://openweathermap.org/img/wn/" + response.list[i].weather[0].icon + "@2x.png" });
+                    }
+
+                    if (response.list[i].dt_txt === day2Match) {
+                        $("#temperature2").text(Math.round((response.list[i].main.temp - 273.15) * 9 / 5 + 32) + "F");
+                        $("#humidity2").text(response.list[i].main.humidity + "%");
+                        $("#weatherPic2").attr({ alt: response.list[i].weather[0].main + " icon", src: "https://openweathermap.org/img/wn/" + response.list[i].weather[0].icon + "@2x.png" });
+                    }
+
+                    if (response.list[i].dt_txt === day3Match) {
+                        $("#temperature3").text(Math.round((response.list[i].main.temp - 273.15) * 9 / 5 + 32) + "F");
+                        $("#humidity3").text(response.list[i].main.humidity + "%");
+                        $("#weatherPic3").attr({ alt: response.list[i].weather[0].main + " icon", src: "https://openweathermap.org/img/wn/" + response.list[i].weather[0].icon + "@2x.png" });
+                    }
+
+                    if (response.list[i].dt_txt === day4Match) {
+                        $("#temperature4").text(Math.round((response.list[i].main.temp - 273.15) * 9 / 5 + 32) + "F");
+                        $("#humidity4").text(response.list[i].main.humidity + "%");
+                        $("#weatherPic4").attr({ alt: response.list[i].weather[0].main + " icon", src: "https://openweathermap.org/img/wn/" + response.list[i].weather[0].icon + "@2x.png" });
+                    }
+
+                    if (response.list[i].dt_txt === day5Match) {
+                        $("#temperature5").text(Math.round((response.list[i].main.temp - 273.15) * 9 / 5 + 32) + "F");
+                        $("#humidity5").text(response.list[i].main.humidity + "%");
+                        $("#weatherPic5").attr({ alt: response.list[i].weather[0].main + " icon", src: "https://openweathermap.org/img/wn/" + response.list[i].weather[0].icon + "@2x.png" });
+                    }
+                }
             })
     }
 
