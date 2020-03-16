@@ -3,7 +3,6 @@ var currentTemperature = $("#current-temperature");
 var currentHumidity = $("#current-humidity");
 var currentWindSpeed = $("#current-wind-speed");
 
-
 // Define variables for dates
 var currentDate = moment().format("MM/DD/YY");
 var day1 = moment().add(1, "days").format("MM/DD/YY");
@@ -16,7 +15,6 @@ var day5 = moment().add(5, "days").format("MM/DD/YY");
 var weatherIcon = $("#weather-icon");
 
 // Document listener
-
 $(document).ready(function() {
 
     // Insert dates for the 5 day forecast
@@ -42,7 +40,7 @@ $(document).ready(function() {
         var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + inputCity + "&APPID=971a7ca92ec80b78e871903e2a5fb549";
 
         // Define query URL for forecaset api
-        var forecastURL = "https://api.openweathermap.org/data/2.5/forecast?q=london&appid=&APPID=971a7ca92ec80b78e871903e2a5fb549";
+        var forecastURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + inputCity + "&APPID=971a7ca92ec80b78e871903e2a5fb549";
 
         // Ajax call for current weather details 
         $.ajax({
@@ -65,19 +63,22 @@ $(document).ready(function() {
             })
 
         // Ajax call for 5 day forecast
-
         $.ajax({
                 url: forecastURL,
                 method: "GET"
 
             })
             .then(function(response) {
-                console.log(response);
 
+                // For loop to replace text elements in 5 day forecast placeholders
+                var i;
+                for (i = 0; i <= 4; i++) {
+                    $("#temperature" + i).text(Math.round((response.list[i].main.temp - 273.15) * 9 / 5 + 32) + "F");
+                    $("#humidity" + i).text(response.list[i].main.humidity + "%");
+                    $("#weatherPic" + i).attr({ alt: response.list[i].weather[0].main + " icon", src: "https://openweathermap.org/img/wn/" + response.list[i].weather[0].icon + "@2x.png" });
+                }
             })
-
     }
-
 
     // Define function to show recent search items as elements to be clicked on later
     function renderRecentSearch() {
@@ -150,22 +151,17 @@ $(document).ready(function() {
             })
     }
 
-
     // Define function to clear recent search items in local storage
     function clearRecentItems() {
         localStorage.clear();
         $(".recent-search-container").empty();
-
     }
-
 
     // Call functions on button clicks
     $("#search-button").on("click", displayWeather);
     $("form").on("submit", displayWeather);
     $(".clear-recent").on("click", clearRecentItems);
     $(document).on("click", ".recent-search", displayWeatherRecentCity);
-
-
 
     // End of document listener
 })
