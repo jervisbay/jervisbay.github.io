@@ -39,10 +39,10 @@ $(document).ready(function() {
         var inputCity = "New York";
 
         // Define query URL for current weather api
-        var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + inputCity + "&APPID=971a7ca92ec80b78e871903e2a5fb549";
+        var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + inputCity + "&APPID=971a7ca92ec80b78e871903e2a5fb549";
 
         // Define query URL for forecaset api
-        var forecastURL = "http://api.openweathermap.org/data/2.5/forecast?q=london&appid=&APPID=971a7ca92ec80b78e871903e2a5fb549";
+        var forecastURL = "https://api.openweathermap.org/data/2.5/forecast?q=london&appid=&APPID=971a7ca92ec80b78e871903e2a5fb549";
 
         // Ajax call for current weather details 
         $.ajax({
@@ -61,7 +61,7 @@ $(document).ready(function() {
                 currentWindSpeed.text(response.wind.speed + "mph");
 
                 // Replace image source in placeholder
-                weatherIcon.attr({ alt: response.weather[0].main + " icon", src: "http://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png" });
+                weatherIcon.attr({ alt: response.weather[0].main + " icon", src: "https://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png" });
             })
 
         // Ajax call for 5 day forecast
@@ -112,7 +112,7 @@ $(document).ready(function() {
         localStorage.setItem(searchCounter, inputCityProper);
 
         // Define query URL for current weather api
-        var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + inputCity + "&APPID=971a7ca92ec80b78e871903e2a5fb549";
+        var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + inputCity + "&APPID=971a7ca92ec80b78e871903e2a5fb549";
 
         // Ajax call for current weather details (similar to ajax call earlier)
         $.ajax({
