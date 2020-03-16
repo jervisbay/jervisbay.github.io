@@ -65,15 +65,16 @@ $(document).ready(function() {
             })
 
         // Ajax call for 5 day forecast
-        // $.ajax({
-        //         url: forecastURL,
-        //         method: "GET"
 
-        //     })
-        //     .then(function(response) {
-        //         console.log(response);
+        $.ajax({
+                url: forecastURL,
+                method: "GET"
 
-        //     })
+            })
+            .then(function(response) {
+                console.log(response);
+
+            })
 
     }
 
@@ -150,9 +151,18 @@ $(document).ready(function() {
     }
 
 
+    // Define function to clear recent search items in local storage
+    function clearRecentItems() {
+        localStorage.clear();
+        $(".recent-search-container").empty();
+
+    }
+
+
     // Call functions on button clicks
     $("#search-button").on("click", displayWeather);
     $("form").on("submit", displayWeather);
+    $(".clear-recent").on("click", clearRecentItems);
     $(document).on("click", ".recent-search", displayWeatherRecentCity);
 
 

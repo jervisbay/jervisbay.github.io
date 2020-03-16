@@ -41,3 +41,19 @@
     margin-left: 1rem;
     padding-top: 1.5rem;
 }
+
+footer {
+    position: absolute;
+    bottom: 0%;
+    width: 100%;
+    background-color: blanchedalmond;
+    text-align: center;
+    font-size: 12px;
+}
+
+.clear-recent {
+    font-size: 12px;
+    border: none;
+    width: 60%;
+    margin-left: 2rem;
+}
