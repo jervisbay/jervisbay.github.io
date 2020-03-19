@@ -162,7 +162,7 @@ $(document).ready(function() {
                 currentTemperature.text(temperatureInFahrenheit + "F");
                 currentHumidity.text(response.main.humidity + "%");
                 currentWindSpeed.text(response.wind.speed + "mph");
-                weatherIcon.attr({ alt: response.weather[0].main + " icon", src: "http://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png" });
+                weatherIcon.attr({ alt: response.weather[0].main + " icon", src: "https://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png" });
             })
 
         // Ajax call for 5 day forecast (similar to above)
