@@ -18,3 +18,10 @@
     font-weight: bold;
     color: blue;
 }
+
+.text-background {
+    border-top: blue solid 1px;
+    border-bottom: red solid 1px;
+    border-left: white solid 1px;
+    border-right: white solid 1px;
+}

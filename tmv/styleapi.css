@@ -1,3 +1,12 @@
+.text-background {
+    background-color: white;
+    padding: 20px;
+    border-top: blue solid 1px;
+    border-bottom: red solid 1px;
+    border-left: white solid 1px;
+    border-right: white solid 1px;
+}
+
 .jumbotron {
     text-align: center;
     background-image: url("https://cdn5.vectorstock.com/i/1000x1000/15/44/lumberjack-plaid-pattern-in-red-white-and-blue-vector-20041544.jpg");
@@ -5,12 +14,13 @@
 
 .nav {
     font-weight: bold;
+    font: 400 normal 12px / 22px "Clarkson", "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: blue;
 }
 
 
 /* Always set the map height explicitly to define the size of the div
- * element that contains the map. */
+   * element that contains the map. */
 
 #map {
     height: 100%;
@@ -35,7 +45,7 @@ body {
     padding: 5px;
     border: 1px solid #999;
     text-align: center;
-    font-family: 'Roboto', 'sans-serif';
+    font-family: "Roboto", "sans-serif";
     line-height: 30px;
     padding-left: 10px;
 }
@@ -66,9 +76,18 @@ body {
 
 #representative-outputs {
     border: black 1px solid;
-    width: 70%;
+    width: 80%;
     background-color: rgb(213, 228, 255);
-    margin: auto;
+    margin-left: 15rem;
+    margin-right: 15rem;
+}
+
+#address-form {
+    border: black 1px solid;
+    width: 80%;
+    margin-left: 15rem;
+    margin-right: 15rem;
+    padding: 10px;
 }
 
 #picture-holder {
