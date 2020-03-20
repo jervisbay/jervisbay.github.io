@@ -12,11 +12,11 @@ var day4 = moment().add(4, "days").format("MM/DD/YY");
 var day5 = moment().add(5, "days").format("MM/DD/YY");
 
 // Define variables to match dt_txt of forecast api call
-var day1Match = moment().add(1, "days").format("YYYY-MM-DD") + " 00:00:00";
-var day2Match = moment().add(2, "days").format("YYYY-MM-DD") + " 00:00:00";
-var day3Match = moment().add(3, "days").format("YYYY-MM-DD") + " 00:00:00";
-var day4Match = moment().add(4, "days").format("YYYY-MM-DD") + " 00:00:00";
-var day5Match = moment().add(5, "days").format("YYYY-MM-DD") + " 00:00:00";
+var day1Match = moment().add(1, "days").format("YYYY-MM-DD") + " 09:00:00";
+var day2Match = moment().add(2, "days").format("YYYY-MM-DD") + " 09:00:00";
+var day3Match = moment().add(3, "days").format("YYYY-MM-DD") + " 09:00:00";
+var day4Match = moment().add(4, "days").format("YYYY-MM-DD") + " 09:00:00";
+var day5Match = moment().add(5, "days").format("YYYY-MM-DD") + " 09:00:00";
 
 // Define variable for the weather icon
 var weatherIcon = $("#weather-icon");
@@ -76,7 +76,8 @@ $(document).ready(function() {
 
             })
             .then(function(response) {
-
+                console.log(response);
+                console.log(day1Match);
                 // Run for loop to match forecast items against desired day
                 var i;
                 for (i = 0; i < response.list.length; i++) {
@@ -212,7 +213,7 @@ $(document).ready(function() {
     function displayWeatherRecentCity(event) {
 
         var inputCity = event.target.textContent;
-        var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + inputCity + "&APPID=971a7ca92ec80b78e871903e2a5fb549";
+        var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + inputCity + "&APPID=971a7ca92ec80b78e871903e2a5fb549";
         var forecastURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + inputCity + "&APPID=971a7ca92ec80b78e871903e2a5fb549";
 
         // Ajax calls same as above
@@ -226,7 +227,7 @@ $(document).ready(function() {
                 currentTemperature.text(temperatureInFahrenheit + "F");
                 currentHumidity.text(response.main.humidity + "%");
                 currentWindSpeed.text(response.wind.speed + "mph");
-                weatherIcon.attr({ alt: response.weather[0].main + " icon", src: "http://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png" });
+                weatherIcon.attr({ alt: response.weather[0].main + " icon", src: "https://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png" });
             })
 
         $.ajax({
