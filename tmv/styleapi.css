@@ -78,23 +78,20 @@ body {
     border: black 1px solid;
     width: 80%;
     background-color: rgb(213, 228, 255);
-    margin-left: 15rem;
-    margin-right: 15rem;
+    margin: auto;
 }
 
 #address-form {
     border: black 1px solid;
     width: 80%;
-    margin-left: 15rem;
-    margin-right: 15rem;
-    padding: 10px;
+    margin: auto padding: 10px;
 }
 
 #picture-holder {
-    height: 300px;
-    width: 300px;
-    margin: auto;
+    max-height: 200px;
+    max-width: 200px;
     outline: none;
+    margin: auto;
 }
 
 form {

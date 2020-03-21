@@ -15,6 +15,8 @@ $(document).ready(function() {
                 console.log(response);
                 console.log(response.offices[4].officialIndices[0]);
 
+                var placeholderImage = "http://www.honorcountry.com/images/product/medium/D166.jpg";
+
                 // Define variables for senator index numbers and senator names and senator party (junior and senior doesn't really work)
                 var senatorSeniorNumber = response.offices[2].officialIndices[1];
                 var senatorJuniorNumber = response.offices[2].officialIndices[0];
@@ -98,7 +100,7 @@ $(document).ready(function() {
                     },
 
                     function() {
-                        $("#imageHolder").attr("src", "");
+                        $("#imageHolder").attr("src", placeholderImage);
                     }
                 )
 
@@ -108,7 +110,7 @@ $(document).ready(function() {
                     },
 
                     function() {
-                        $("#imageHolder").attr("src", "");
+                        $("#imageHolder").attr("src", placeholderImage);
                     }
                 )
 
@@ -118,7 +120,7 @@ $(document).ready(function() {
                     },
 
                     function() {
-                        $("#imageHolder").attr("src", "");
+                        $("#imageHolder").attr("src", placeholderImage);
                     }
                 )
 
@@ -129,7 +131,7 @@ $(document).ready(function() {
                     },
 
                     function() {
-                        $("#imageHolder").attr("src", "");
+                        $("#imageHolder").attr("src", placeholderImage);
                     }
                 )
 
