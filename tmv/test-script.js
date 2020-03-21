@@ -160,6 +160,22 @@ $(document).ready(function() {
                 console.log("Number of Democrats: " + numberOfDemocrats);
                 console.log("Number of Independents: " + numberOfIndependents);
 
+                if (numberOfDemocrats > numberOfRepublicans) {
+                    $("#representative-outputs").removeClass("republican-background");
+                    $("#representative-outputs").removeClass("neutral-background");
+                    $("#representative-outputs").addClass("democratic-background");
+                } else if (numberOfDemocrats < numberOfRepublicans) {
+                    $("#representative-outputs").removeClass("neutral-background");
+                    $("#representative-outputs").removeClass("democratic-background");
+                    $("#representative-outputs").addClass("republican-background");
+
+                } else {
+                    $("#representative-outputs").removeClass("democratic-background");
+                    $("#representative-outputs").removeClass("republican-background");
+                    $("#representative-outputs").addClass("neutral-background");
+                }
+
+
             })
     })
 

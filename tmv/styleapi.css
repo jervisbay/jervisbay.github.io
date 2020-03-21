@@ -77,7 +77,7 @@ body {
 #representative-outputs {
     border: black 1px solid;
     width: 80%;
-    background-color: rgb(213, 228, 255);
+    /* background-color: rgb(213, 228, 255); */
     margin: auto;
 }
 
@@ -105,4 +105,16 @@ form {
 
 .democrat {
     color: blue;
+}
+
+.democratic-background {
+    background-color: rgb(213, 228, 255);
+}
+
+.republican-background {
+    background-color: rgb(248, 158, 158);
+}
+
+.neutral-background {
+    background-color: rgb(255, 255, 255);
 }
