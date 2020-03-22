@@ -7,17 +7,6 @@
     border-right: white solid 1px;
 }
 
-.jumbotron {
-    text-align: center;
-    background-image: url("https://cdn5.vectorstock.com/i/1000x1000/15/44/lumberjack-plaid-pattern-in-red-white-and-blue-vector-20041544.jpg");
-}
-
-.nav {
-    font-weight: bold;
-    font: 400 normal 12px / 22px "Clarkson", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: blue;
-}
-
 
 /* Always set the map height explicitly to define the size of the div
    * element that contains the map. */
@@ -63,10 +52,9 @@ body {
 }
 
 .hover-image {
-    width: 400px;
-    height: 400px;
-    /* display: none; */
-    outline: none;
+    max-width: 200px;
+    max-height: 200px;
+    /* margin: auto; */
 }
 
 .container {
@@ -75,7 +63,7 @@ body {
 }
 
 #representative-outputs {
-    border: black 1px solid;
+    /* border: black 1px solid; */
     width: 80%;
     /* background-color: rgb(213, 228, 255); */
     margin: auto;
@@ -84,19 +72,14 @@ body {
 #address-form {
     border: black 1px solid;
     width: 80%;
-    margin: auto padding: 10px;
-}
-
-#picture-holder {
-    max-height: 200px;
-    max-width: 200px;
-    outline: none;
     margin: auto;
+    padding: 10px;
 }
 
 form {
     margin: auto;
     text-align: center;
+    /* float: right; */
 }
 
 .republican {
@@ -117,4 +100,20 @@ form {
 
 .neutral-background {
     background-color: rgb(255, 255, 255);
+}
+
+.rep-flex-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#rep-flex-name-container {
+    /* flex: 2; */
+    flex-basis: 65%;
+}
+
+#rep-flex-picture-container {
+    /* flex: 1; */
+    flex-basis: 30%;
 }

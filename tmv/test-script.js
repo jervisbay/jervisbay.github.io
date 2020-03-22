@@ -15,7 +15,7 @@ $(document).ready(function() {
                 console.log(response);
                 console.log(response.offices[4].officialIndices[0]);
 
-                var placeholderImage = "http://www.honorcountry.com/images/product/medium/D166.jpg";
+                var placeholderImage = "https://miro.medium.com/max/2470/0*o0-6o1W1DKmI5LbX.png";
 
                 // Define variables for senator index numbers and senator names and senator party (junior and senior doesn't really work)
                 var senatorSeniorNumber = response.offices[2].officialIndices[1];
@@ -42,6 +42,7 @@ $(document).ready(function() {
                 var governorName = response.officials[governorNumber].name;
                 var governorParty = response.officials[governorNumber].party;
                 var governorImageURL = response.officials[governorNumber].photoUrl;
+                console.log(governorImageURL);
 
                 // Create array to hold party affiliations
                 var partyAffiliation = [senatorSeniorParty, senatorJuniorParty, representativeParty, governorParty];
@@ -54,41 +55,64 @@ $(document).ready(function() {
                 $("#governor").text("Governor: " + governorName);
 
                 if (senatorSeniorParty === "Republican Party") {
+                    $("#senatorSenior").removeClass("democrat");
+                    $("#senatorSenior").removeClass("independent");
                     $("#senatorSenior").addClass("republican");
                 } else if (senatorSeniorParty === "Democratic Party") {
+                    $("#senatorSenior").removeClass("independent");
+                    $("#senatorSenior").removeClass("republican");
                     $("#senatorSenior").addClass("democrat");
 
                 } else {
+                    $("#senatorSenior").removeClass("republican");
+                    $("#senatorSenior").removeClass("democrat");
                     $("#senatorSenior").addClass("independent");
 
                 }
 
                 if (senatorJuniorParty === "Republican Party") {
+                    $("#senatorJunior").removeClass("democrat");
+                    $("#senatorJunior").removeClass("independent");
                     $("#senatorJunior").addClass("republican");
                 } else if (senatorJuniorParty === "Democratic Party") {
+                    $("#senatorJunior").removeClass("independent");
+                    $("#senatorJunior").removeClass("republican");
                     $("#senatorJunior").addClass("democrat");
 
                 } else {
+                    $("#senatorJunior").removeClass("republican");
+                    $("#senatorJunior").removeClass("democrat");
                     $("#senatorJunior").addClass("independent");
-
                 }
 
                 if (representativeParty === "Republican Party") {
+                    $("#representative").removeClass("democrat");
+                    $("#representative").removeClass("independent");
                     $("#representative").addClass("republican");
                 } else if (representativeParty === "Democratic Party") {
+                    $("#representative").removeClass("independent");
+                    $("#representative").removeClass("republican");
                     $("#representative").addClass("democrat");
 
                 } else {
+                    $("#representative").removeClass("republican");
+                    $("#representative").removeClass("democrat");
                     $("#representative").addClass("independent");
 
                 }
 
                 if (governorParty === "Republican Party") {
+                    $("#governor").removeClass("democrat");
+                    $("#governor").removeClass("independent");
                     $("#governor").addClass("republican");
                 } else if (governorParty === "Democratic Party") {
+                    $("#governor").removeClass("independent");
+                    $("#governor").removeClass("republican");
                     $("#governor").addClass("democrat");
 
                 } else {
+                    $("#governor").removeClass("republican");
+                    $("#governor").removeClass("democrat");
                     $("#governor").addClass("independent");
 
                 }
