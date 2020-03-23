@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="styleapi.css" />
+    <title>The Millenial Voice</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">The Millenial Voice</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">What Matters</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Resources</a>
+                </li>
+            </ul>
+            <span class="navbar-text">
+          TMV is a Voice not an Echo
+        </span>
+        </div>
+    </nav>
+
+    <div class="jumbotron">
+        <div class="text-background">
+            <h1 class="display-4">About Us</h1>
+            <p class="lead">
+                Millennials and Zoomers are one of the most disengaged voter blocs out and this app/website is to encourage the next generation of engaged Americans to care about their civic duty. As time changes we need to adapt to new technologies. We start with informing
+                them of their local politicians.
+            </p>
+            <hr class="my-4" />
+            <p>
+                Fill out your address below in the form provided to learn more about your local government.
+            </p>
+        </div>
+    </div>
+
+    <div class="container">
+        <form id="address-form">
+            <div class="form-group">
+                <label for="inputAddress">Address</label>
+                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" />
+            </div>
+            <div class="form-group">
+                <label for="inputAddress2">Address 2</label>
+                <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" />
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputCity">City</label>
+                    <input type="text" class="form-control" id="inputCity" />
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputState">State</label>
+                    <select id="inputState" class="form-control">
+              <option selected>Choose...</option>
+              <option>...</option>
+            </select>
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputZip">Zip</label>
+                    <input type="text" placeholder="Enter Your Zipcode" class="form-control" id="userZipCode" />
+                </div>
+            </div>
+            <button type="button" class="btn btn-primary" id="submit">
+          Give Me My Reps
+        </button>
+        </form>
+
+        <br />
+
+
+        <div id="representative-outputs">
+            <br />
+            <div class="inner" id="senatorSenior"></div>
+            <br />
+
+            <div class="inner" id="senatorJunior"></div>
+            <br />
+            <div class="inner" id="representative"></div>
+            <br />
+            <div class="inner" id="governor"></div>
+            <br />
+
+        </div>
+        <br>
+
+
+        <div id="picture-holder">
+            <img class="hover-image" id="imageHolder" src="http://www.honorcountry.com/images/product/medium/D166.jpg" />
+        </div>
+    </div>
+
+    <script src="test-script.js"></script>
+</body>
+
+</html>
