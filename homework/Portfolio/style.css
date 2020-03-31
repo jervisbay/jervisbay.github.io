@@ -1,0 +1,140 @@
+* {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+/* Sets rules for when the navigation bar changes */
+
+@media screen and (max-width: 576px) {
+    .navbar {
+        display: none
+    }
+}
+
+@media screen and (min-width: 576px) {
+    .navbar2 {
+        display: none
+    }
+}
+
+
+/* General formatting IDs */
+
+#border-left {
+    border-left: black solid 1px;
+}
+
+#border-right {
+    border-right: black solid 1px;
+}
+
+body {
+    background-color: rgb(240, 240, 223);
+}
+
+a {
+    color: black;
+}
+
+
+/* Navigation bar for larger screens */
+
+.navbar {
+    background-color: rgba(255, 255, 0, 0.479);
+    height: 60px;
+}
+
+.nav-container {
+    width: 90%;
+    margin: auto;
+}
+
+.nav-brand {
+    font-size: 24px;
+    text-align: center;
+    background-color: rgb(185, 185, 185);
+    color: black;
+    font-weight: bolder;
+}
+
+.nav-link {
+    font-size: 16px;
+    margin: auto;
+    text-align: center;
+}
+
+
+/* Navigation bar for smaller screens */
+
+.navbar2 {
+    background-color: rgba(255, 255, 0, 0.479);
+}
+
+#navbar2-top-row {
+    background-color: rgb(185, 185, 185);
+    color: black;
+    font-weight: bolder;
+    text-align: center;
+    /* Why doesn't this text align center automatically? */
+    margin: auto;
+    padding: 6px 40% 6px 40%;
+    height: 40px;
+}
+
+
+/* Main page settings */
+
+.body-container {
+    width: 90%;
+    /* border: 1px black solid; */
+    height: 1000px;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.card {}
+
+.card-header {
+    background-color: yellow;
+    border-bottom: black solid 2px;
+    font-size: 20px;
+}
+
+.card-body {
+    background-color: rgb(245, 241, 192);
+}
+
+#portfolio-card {
+    margin-top: 20px;
+    padding-left: 5%;
+}
+
+.floater {
+    background-color: yellow;
+    width: 150px;
+    text-align: center;
+    font-weight: bold;
+    height: 30px;
+    padding-top: 2%;
+    border-top: rgb(128, 128, 0) solid 1px;
+    border-bottom: rgb(128, 128, 0) solid 1px;
+    position: relative;
+    bottom: 30%;
+    font-size: 14px;
+}
+
+
+/* Footer settings */
+
+footer {
+    background-color: rgba(255, 255, 0, 0.479);
+    height: 20px;
+    font-size: 10px;
+    text-align: center;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    position: static;
+    bottom: 0%;
+    left: 0%;
+    width: 100%;
+}
