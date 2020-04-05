@@ -17,9 +17,11 @@
   "author": "Jervis Bay",
   "license": "ISC",
   "dependencies": {
+    "api": "0.0.1",
     "fs": "0.0.1-security",
     "inquirer": "^7.1.0",
     "open": "^7.0.3",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "util": "^0.12.2"
   }
 }
