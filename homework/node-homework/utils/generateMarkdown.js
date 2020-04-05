@@ -20,7 +20,7 @@ Run the following command to install:
     ${ inquirerAnswers.installation }
       
 # Usage
-    ${inquirerAnswers.usage}
+${inquirerAnswers.usage}
 
 # License
 Project uses the following license: ${inquirerAnswers.license}
