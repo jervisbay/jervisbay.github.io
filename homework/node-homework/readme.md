@@ -3,8 +3,8 @@
     # Project 1
     ![travis build](https://img.shields.io/travis/joyent/node.svg)
   
-  # Description
-    This is going to be a cool project
+# Description
+This is going to be a cool project
   
 # Table of Contents
 1.  Installation
@@ -17,17 +17,20 @@
 
 # Installation
 Run the following command to install:
-npm install
+    npm install
+    
+    
+    
 
 # Usage
-
+    
 
 # License
 Project uses the following license: MIT
 
 # Tests
 Run the following command to test:
-npm run test
+    npm run test
 
 # Questions
 Please contact author at username@gmail.com
