@@ -2,7 +2,7 @@ function generateMarkdown(inquirerAnswers) {
     return `
 
 # ${inquirerAnswers.title}
-    ![travis build](https://img.shields.io/travis/jervisbay/jervisbay.github.io/tree/master/homework/node-homework.svg)
+    ![travis build](https://travis-ci.com/jervisbay/jervisbay.github.io.svg?branch=master)(https://travis-ci.com/github/jervisbay/jervisbay.github.io)
   
 # Description
 ${inquirerAnswers.description}
