@@ -2,8 +2,9 @@
 
 
 
-    # Project 1
-    ![travis build](https://img.shields.io/travis/joyent/node.svg)
+
+# Project-1
+    ![travis build](https://img.shields.io/travis/jervisbay/jervisbay.github.io/tree/master/homework/node-homework.svg)
   
 # Description
 This is going to be a cool project
@@ -16,14 +17,10 @@ This is going to be a cool project
 5.  Tests
 6.  Questions
 
-
-    # Installation
+# Installation
 Run the following command to install:
     npm install
-    
-    
-    
-
+      
 # Usage
     
 

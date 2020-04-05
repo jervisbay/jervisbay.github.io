@@ -1,11 +1,11 @@
 function generateMarkdown(inquirerAnswers) {
     return `
 
-    # ${inquirerAnswers.title}
-    ![travis build](https://img.shields.io/travis/joyent/node.svg)
+# ${inquirerAnswers.title}
+    ![travis build](https://img.shields.io/travis/jervisbay/jervisbay.github.io/tree/master/homework/node-homework.svg)
   
-  # Description
-    ${inquirerAnswers.description}
+# Description
+${inquirerAnswers.description}
   
 # Table of Contents
 1.  Installation
@@ -15,20 +15,19 @@ function generateMarkdown(inquirerAnswers) {
 5.  Tests
 6.  Questions
 
-
 # Installation
 Run the following command to install:
-${inquirerAnswers.installation}
-
+    ${ inquirerAnswers.installation }
+      
 # Usage
-${inquirerAnswers.usage}
+    ${inquirerAnswers.usage}
 
 # License
 Project uses the following license: ${inquirerAnswers.license}
 
 # Tests
 Run the following command to test:
-${inquirerAnswers.tests}
+    ${inquirerAnswers.tests}
 
 # Questions
 Please contact author at ${inquirerAnswers.email}

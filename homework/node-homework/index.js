@@ -11,7 +11,7 @@ const questions = [{
         type: "input",
         name: "title",
         message: "What is the title of your project?",
-        default: "Project 1"
+        default: "Project-1"
     },
     {
         type: "input",
