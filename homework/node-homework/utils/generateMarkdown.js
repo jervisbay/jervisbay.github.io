@@ -6,7 +6,7 @@ function generateMarkdown(inquirerAnswers) {
   
 # Description
 ${inquirerAnswers.description}
-  
+
 # Table of Contents
 1.  Installation
 2.  Usage
@@ -25,6 +25,9 @@ Run the following command to install:
 # License
 Project uses the following license: ${inquirerAnswers.license}
 
+# Contributors
+${inquirerAnswers.contributing}
+
 # Tests
 Run the following command to test:
     ${inquirerAnswers.tests}
@@ -32,6 +35,7 @@ Run the following command to test:
 # Questions
 Please contact author at ${inquirerAnswers.email}
 
+![user picture](${inquirerAnswers.picture})
   `;
 }
 

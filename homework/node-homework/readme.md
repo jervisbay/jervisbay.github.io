@@ -5,7 +5,7 @@
   
 # Description
 This is going to be a cool project
-  
+
 # Table of Contents
 1.  Installation
 2.  Usage
@@ -24,6 +24,9 @@ Run the following command to install:
 # License
 Project uses the following license: MIT
 
+# Contributors
+Just Me!
+
 # Tests
 Run the following command to test:
     npm run test
@@ -31,4 +34,5 @@ Run the following command to test:
 # Questions
 Please contact author at username@gmail.com
 
+![user picture](undefined)
   

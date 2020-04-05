@@ -2,12 +2,18 @@ const fs = require("fs");
 const inquirer = require("inquirer");
 // const api = require("./utils/api");
 const generateMarkdown = require("./utils/generateMarkdown");
-const path = require("path");
+// const path = require("path");
 const open = require("open");
 const util = require("util");
+const axios = require("axios");
 
 // Question object to be passed into inquirer.prompt method
 const questions = [{
+        type: "input",
+        name: "username",
+        message: "What is your Github username?",
+    },
+    {
         type: "input",
         name: "title",
         message: "What is the title of your project?",
@@ -56,6 +62,7 @@ const questions = [{
     },
 ];
 
+
 const writeFileASync = util.promisify(fs.writeFile);
 const fileName = "readme.md";
 
@@ -66,15 +73,26 @@ async function init() {
         // Call inquirer prompts and await answers
         const inquirerAnswers = await inquirer.prompt(questions);
 
+        // Create queryURL for axios call to the github API
+        const queryUrl = `https://api.github.com/users/${inquirerAnswers.username}`;
+
+        // Get user picture URL from the github axios call
+        try {
+            const userPicture = await axios.get(queryUrl)
+                .then(function(res) { return res.data.avatar_url })
+
+            // Add this URL to the inquirerAnswers object
+            inquirerAnswers.picture = userPicture;
+        } catch (err) {
+            throw "Username not found.  Please try again."
+        };
+
         // Pass answers from inquirer prompt into the generateMarkdown
         const readme = generateMarkdown(inquirerAnswers);
 
         // Write readme file with generateMarkdown
         await writeFileASync(fileName, readme);
         console.log("Wrote README!");
-
-        // Open readme file
-        open(fileName, { app: 'google chrome' });
 
     } catch (err) {
         console.log(err);
