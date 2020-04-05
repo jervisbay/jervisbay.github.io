@@ -80,4 +80,5 @@ async function init() {
     }
 }
 
+// Call function to start
 init();
