@@ -1,7 +1,7 @@
 
 
 # Project-1
-![travis build](https://travis-ci.com/jervisbay/jervisbay.github.io.svg?branch=master)(https://travis-ci.com/github/jervisbay/jervisbay.github.io)
+[![travis build](https://travis-ci.com/jervisbay/jervisbay.github.io.svg?branch=master)](https://travis-ci.com/github/jervisbay/jervisbay.github.io)
   
 # Description
 This is going to be a cool project

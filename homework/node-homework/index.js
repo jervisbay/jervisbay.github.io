@@ -74,7 +74,8 @@ async function init() {
         console.log("Wrote README!");
 
         // Open readme file
-        open(fileName);
+        open(fileName, { app: 'google chrome' });
+
     } catch (err) {
         console.log(err);
     }
