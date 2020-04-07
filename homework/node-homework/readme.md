@@ -1,10 +1,12 @@
 
 
-# Readme Generator
+# Project-1
 [![travis build](https://travis-ci.com/jervisbay/jervisbay.github.io.svg?branch=master)](https://travis-ci.com/github/jervisbay/jervisbay.github.io)
   
 # Description
-This is a simple readme generator
+``` 
+This is going to be a cool project
+``` 
 
 # Table of Contents
 1.  Installation
@@ -16,23 +18,31 @@ This is a simple readme generator
 
 # Installation
 Run the following command to install:
-    npm install
-      
+```   
+npm install
+```   
+
 # Usage
-After finishing a project, use this project to automatically create a readme markdown
+```   
+
+```   
 
 # License
 Project uses the following license: MIT
 
 # Contributors
+```   
 Just Me!
+```   
 
 # Tests
 Run the following command to test:
-    npm run test
+```     
+npm run test
+``` 
 
 # Questions
-Please contact author at jervis.bay@gmail.com
+Please contact author at username@gmail.com
 
 ![user picture](https://avatars2.githubusercontent.com/u/57836663?v=4)
   

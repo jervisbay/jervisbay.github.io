@@ -5,7 +5,9 @@ function generateMarkdown(inquirerAnswers) {
 [![travis build](https://travis-ci.com/jervisbay/jervisbay.github.io.svg?branch=master)](https://travis-ci.com/github/jervisbay/jervisbay.github.io)
   
 # Description
+\`\`\` 
 ${inquirerAnswers.description}
+\`\`\` 
 
 # Table of Contents
 1.  Installation
@@ -17,20 +19,28 @@ ${inquirerAnswers.description}
 
 # Installation
 Run the following command to install:
-    ${ inquirerAnswers.installation }
-      
+\`\`\`   
+${ inquirerAnswers.installation }
+\`\`\`   
+
 # Usage
+\`\`\`   
 ${inquirerAnswers.usage}
+\`\`\`   
 
 # License
 Project uses the following license: ${inquirerAnswers.license}
 
 # Contributors
+\`\`\`   
 ${inquirerAnswers.contributing}
+\`\`\`   
 
 # Tests
 Run the following command to test:
-    ${inquirerAnswers.tests}
+\`\`\`     
+${inquirerAnswers.tests}
+\`\`\` 
 
 # Questions
 Please contact author at ${inquirerAnswers.email}
