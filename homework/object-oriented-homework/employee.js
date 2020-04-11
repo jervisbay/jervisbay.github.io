@@ -18,4 +18,43 @@ class Employee {
     }
 };
 
+class Engineer extends Employee {
+    constructor(name, id, email, github) {
+        super(name, id, email)
+        this.github = github;
+    }
+    getRole() {
+        console.log("Engineer");
+    }
+    getGithub() {
+        console.log(this.github);
+    }
+};
+
+class Intern extends Employee {
+    constructor(name, id, email, school) {
+        super(name, id, email)
+        this.school = school;
+    }
+    getRole() {
+        console.log("Intern");
+    }
+    getSchool() {
+        console.log(this.school);
+    }
+};
+
+class Manager extends Employee {
+    constructor(name, id, email, officeNumber) {
+        super(name, id, email)
+        this.officeNumber = officeNumber;
+    }
+    getRole() {
+        console.log("Manager");
+    }
+};
+
 module.exports = Employee;
+module.exports = Manager;
+module.exports = Intern;
+module.exports = Engineer;

@@ -4,8 +4,9 @@ const fs = require("fs");
 const util = require("util");
 const replace = require('replace-in-file');
 const open = require("open");
-const generateInitialHTML = require("./generateInitialHTML");
-const Employee = require("./employee")
+const generateMarkUp = require("./generatemarkup");
+const generateEngineerMarkUp = require("./generateengineermarkup");
+const Employee = require("./employee");
 
 
 const writeFileASync = util.promisify(fs.writeFile);
@@ -25,37 +26,16 @@ const teamQuestions = [{
     choices: ["Engineer", "Intern", "That's the team!"],
 }, ];
 
-const removeEndBodyTag = {
-    files: "./index.html",
-    from: "</body>",
-    to: "",
-};
-
 const removeEndHTMLTag = {
     files: "./index.html",
     from: "</html>",
     to: "",
 };
 
-// define classes and extensions
-class Employee {
-    constructor(name, id, email) {
-        this.name = name;
-        this.id = id;
-        this.email = email;
-    }
-    getName() {
-        console.log(this.name);
-    }
-    getId() {
-        console.log(this.id);
-    }
-    getEmail() {
-        console.log(this.email);
-    }
-    getRole() {
-        console.log("Employee");
-    }
+const removeEndDivTag = {
+    files: "./index.html",
+    from: "</div end>",
+    to: "",
 };
 
 // define array to store team members, will push items into this array
@@ -64,8 +44,7 @@ const teamMembers = [];
 // define function to ask for manager name and create initial HTML document
 async function askForManager() {
     const managerAnswer = await inquirer.prompt(managerQuestion);
-    console.log(managerAnswer.managerName);
-    const indexHTML = generateInitialHTML(managerAnswer);
+    const indexHTML = generateMarkUp(managerAnswer);
     // write initial HTML file
     await writeFileASync("index.html", indexHTML)
         .then(console.log("Wrote initial HTML page!"))
@@ -75,8 +54,8 @@ async function askForManager() {
 
 async function replaceTextinHTML() {
     try {
-        await replace(removeEndBodyTag)
-            .then((results) => { replace(removeEndHTMLTag) });
+        await replace(removeEndHTMLTag)
+            .then((results) => { replace(removeEndDivTag) });
     } catch (error) {
         console.log(error);
     }
@@ -90,8 +69,13 @@ async function askForTeamMembers() {
     // if prompt response is engineer or intern, add to teamMembers array and ask question again
     switch (teamMemberAnswer.additionalEmployee) {
         case "Engineer":
-            console.log("Added an Engineer!")
-            askForTeamMembers();
+            const additionalHTML = generateEngineerMarkUp(teamMemberAnswer);
+            await fs.appendFile("index.html", additionalHTML, (err) => {
+                if (err) throw err;
+                console.log("Added an Engineer!");
+            })
+
+            // askForTeamMembers();
             break;
         case "Intern":
             console.log("Added an Intern!")
@@ -101,19 +85,18 @@ async function askForTeamMembers() {
             console.log("No more team members")
             break;
     }
-
 }
 
 async function init() {
-
     await askForManager();
-    // await replaceTextinHTML();
     await askForTeamMembers();
-
 
 }
 
 init();
 
-// open file --> this should move to askforteammembers function
-// open("index.html");
+// const waffles = new Employee("Waffles", 0, "gmail");
+// console.log(waffles);
+
+// const waffles2 = new Engineer("Waffles", 0, "gmail", "wafflesgit");
+// console.log(waffles2);
