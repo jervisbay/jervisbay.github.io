@@ -5,6 +5,8 @@ const util = require("util");
 const replace = require('replace-in-file');
 const open = require("open");
 const generateInitialHTML = require("./generateInitialHTML");
+const Employee = require("./employee")
+
 
 const writeFileASync = util.promisify(fs.writeFile);
 
