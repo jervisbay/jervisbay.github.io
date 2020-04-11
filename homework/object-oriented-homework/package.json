@@ -1,0 +1,32 @@
+{
+  "name": "oop-homework",
+  "version": "1.0.0",
+  "description": "Creating a team page",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "jervisbay.github.io"
+  },
+  "keywords": [
+    "team",
+    "page",
+    "generator"
+  ],
+  "author": "Jervis Bay",
+  "license": "ISC",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "inquirer": "^7.1.0",
+    "jest": "^25.3.0",
+    "open": "^7.0.3",
+    "replace-in-file": "^5.0.2",
+    "util": "^0.12.2"
+  },
+  "devDependencies": {}
+}
