@@ -24,14 +24,12 @@ function generateMarkUp(managerAnswer) {
                 <h6><i class="fas fa-glasses">     Manager</i></h6>
             </div>
             <div class="card-body">
-                <p>ID: </p>
-                <p>Email: </p>
-                <p>Office Number: </p>
+            <p class="card-text">ID: ${managerAnswer.managerID}</p>
+            <p class="card-text">Email: ${managerAnswer.managerEmail}</p>
+            <p class="card-text">Office Number: ${managerAnswer.managerPhoneNumber}</p>
             </div>
         </div>
     </div end>
-
-
 </html>
     `
 }
