@@ -1,6 +1,5 @@
 function generateEngineerMarkUp(engineerAnswer) {
     return `
-    <div class="cards-container">
     <div class="card">
         <div class="card-header">
             <h5>${engineerAnswer.engineerName}</h5>

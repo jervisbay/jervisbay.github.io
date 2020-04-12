@@ -6,6 +6,7 @@ const replace = require('replace-in-file');
 const open = require("open");
 const generateMarkUp = require("./generatemarkup");
 const generateEngineerMarkUp = require("./generateengineermarkup");
+const generateInternMarkUp = require("./generateinternmarkup");
 const employeeClasses = require("./employee");
 const questions = require("./questions");
 
@@ -39,6 +40,18 @@ const allEmployees = [];
 const allManagers = [];
 const allEngineers = [];
 const allInterns = [];
+
+function printOutTeam() {
+    console.log("No more team members")
+    console.log("----- Employees -----")
+    console.log(allEmployees);
+    console.log("----- Managers -----")
+    console.log(allManagers);
+    console.log("----- Engineers -----")
+    console.log(allEngineers);
+    console.log("----- Interns -----")
+    console.log(allInterns);
+}
 
 // define function to ask for manager name and create initial HTML document
 async function askForManager() {
@@ -74,25 +87,30 @@ async function askForTeamMembers() {
             const engineerOne = new Engineer(engineerAnswer.engineerName, engineerAnswer.engineerID, engineerAnswer.engineerEmail, engineerAnswer.engineerGithub);
             allEmployees.push(engineerOne);
             allEngineers.push(engineerOne);
-            const additionalHTML = generateEngineerMarkUp(engineerAnswer);
-            await fs.appendFile("index.html", additionalHTML, (err) => {
+            const additionalEngineerHTML = generateEngineerMarkUp(engineerAnswer);
+            await fs.appendFile("index.html", additionalEngineerHTML, (err) => {
                 if (err) throw err;
                 console.log("Added an Engineer!");
             })
             askForTeamMembers();
             break;
+
         case "Intern":
-            console.log("Added an Intern!")
+            replaceTextinHTML();
+            const internAnswer = await inquirer.prompt(internQuestions);
+            const internOne = new Intern(internAnswer.internName, internAnswer.internID, internAnswer.internEmail, internAnswer.internSchool);
+            allEmployees.push(internOne);
+            allInterns.push(internOne);
+            const additionalInternHTML = generateInternMarkUp(internAnswer);
+            await fs.appendFile("index.html", additionalInternHTML, (err) => {
+                if (err) throw err;
+                console.log("Added an Intern!");
+            })
             askForTeamMembers();
             break;
+
         case "That's the team!":
-            console.log("No more team members")
-            console.log("----- Employees -----")
-            console.log(allEmployees);
-            console.log("----- Managers -----")
-            console.log(allManagers);
-            console.log("----- Engineers -----")
-            console.log(allEngineers);
+            printOutTeam();
             break;
     }
 }
@@ -100,7 +118,7 @@ async function askForTeamMembers() {
 async function init() {
     await askForManager();
     await askForTeamMembers();
-
+    open("index.html");
 }
 
 init();
