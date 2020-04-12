@@ -26,3 +26,7 @@ h1 {
 .card-text {
     font-size: 12px;
 }
+
+html * {
+    font-family: Arial, Helvetica, sans-serif;
+}

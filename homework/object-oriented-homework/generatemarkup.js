@@ -21,7 +21,7 @@ function generateMarkUp(managerAnswer) {
         <div class="card">
             <div class="card-header">
                 <h5>${managerAnswer.managerName}</h5>
-                <h6><i class="fas fa-glasses">     Manager</i></h6>
+                <h6><i class="fas fa-user-tie">     Manager</i></h6>
             </div>
             <div class="card-body">
             <p class="card-text">ID: ${managerAnswer.managerID}</p>
