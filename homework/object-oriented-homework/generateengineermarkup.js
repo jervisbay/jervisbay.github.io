@@ -3,7 +3,7 @@ function generateEngineerMarkUp(engineerAnswer) {
     <div class="card">
         <div class="card-header">
             <h5>${engineerAnswer.engineerName}</h5>
-            <h6><i class="fas fa-laptop-code">     Engineer</i></h6>
+            <h6><i class="fas fa-laptop-code"></i>   Engineer</h6>
         </div>
         <div class="card-body">
             <p class="card-text">ID: ${engineerAnswer.engineerID}</p>
@@ -12,7 +12,6 @@ function generateEngineerMarkUp(engineerAnswer) {
         </div>
     </div>
     </div end>
-</html>
     `
 }
 module.exports = generateEngineerMarkUp;

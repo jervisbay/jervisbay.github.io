@@ -69,6 +69,7 @@ async function askForTeamMembers() {
         case "Engineer":
             // remove bottom tags on the initial generated HTML markup    
             replaceTextinHTML();
+
             // get response from inquirer prompt and create new Engineer with responses
             const engineerAnswer = await inquirer.prompt(engineerQuestions);
             const engineerOne = new Engineer(engineerAnswer.engineerName, engineerAnswer.engineerID, engineerAnswer.engineerEmail, engineerAnswer.engineerGithub);
@@ -89,6 +90,7 @@ async function askForTeamMembers() {
             // if added team member is an Engineer...
         case "Intern":
             replaceTextinHTML();
+
             const internAnswer = await inquirer.prompt(internQuestions);
             const internOne = new Intern(internAnswer.internName, internAnswer.internID, internAnswer.internEmail, internAnswer.internSchool);
             allEmployees.push(internOne);
@@ -105,7 +107,10 @@ async function askForTeamMembers() {
         case "That's the team!":
             // console log all the employees    
             await printOutTeam();
-            // open the generated index.html file
+            await fs.appendFile("index.html", "</html>", (err) => {
+                    if (err) throw err;
+                })
+                // open the generated index.html file
             open("index.html");
             break;
     }

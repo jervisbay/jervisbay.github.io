@@ -8,10 +8,6 @@ const testEmployee = new Employee("Waffles", 1, "waffles@gmail.com");
 const testManager = new Manager("Waffles", 1, "waffles@gmail.com", 123456);
 const testEngineer = new Engineer("Waffles", 1, "waffles@gmail.com", "wafflesgit");
 const testIntern = new Intern("Waffles", 1, "waffles@gmail.com", "UVA");
-const EmployeeRole = testEmployee.getRole();
-const EmployeeName = testEmployee.getName();
-const EmployeeID = testEmployee.getId();
-const EmployeeEmail = testEmployee.getEmail();
 
 describe("Employee", () => {
     describe("Initialization / Creating New Classes", () => {
@@ -41,12 +37,12 @@ describe("Employee", () => {
     });
 
     // test that these methods actually console.log the right thing
-    describe("Testing methods", () => {
+    describe("Testing methods for created Classes", () => {
         it("should get respective attributes", () => {
-            expect(EmployeeRole).toEqual("Employee");
-            expect(EmployeeName).toEqual("Waffles");
-            expect(EmployeeID).toEqual(1);
-            expect(EmployeeEmail).toEqual("waffles@gmail.com");
+            const mock = jest.spyOn(console, "log");
+            testEmployee.getRole();
+            expect(mock).toBeCalledWith("Employee");
+            mock.mockRestore();
         });
     });
 
