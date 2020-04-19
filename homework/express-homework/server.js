@@ -17,7 +17,6 @@ fs.readFile("./Develop/db/id.txt", "UTF-8", function(err, res) {
 // Sets up the Express App
 var app = express();
 var portNumber = process.env.PORT || 3000;
-// var portNumber = server.listen(process.env.PORT || 3000);
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
