@@ -1,26 +1,16 @@
-// var noteID = 0;
-
-// $.ajax({
-//     url: "/api/id/",
-//     method: "GET"
-// }).then((res) => noteID = res);
-
 $(".submit").on("click", function(event) {
     event.preventDefault();
 
-    // noteID++;
-
+    // declare variable with input from html
     var newNote = {
-        // id: noteID,
         title: $(".note-title").val().trim(),
         text: $(".note-textarea").val().trim(),
     };
 
-    console.log(newNote);
-
+    // ajax post with route, newNote above
     $.post("/api/notes", newNote,
         function(data) {
-
+            // check if data is valid
             if (data) {
                 alert("Your note has been saved");
                 // Clear the form when submitting
