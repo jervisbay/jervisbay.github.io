@@ -16,7 +16,8 @@ fs.readFile("./Develop/db/id.txt", "UTF-8", function(err, res) {
 
 // Sets up the Express App
 var app = express();
-var PORT = 3000;
+var portNumber = 3000;
+// var portNumber = server.listen(process.env.PORT || 3000);
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
@@ -106,6 +107,6 @@ app.post("/api/notes", function(req, res) {
 
 
 // Starts the server to begin listening
-app.listen(PORT, function() {
-    console.log("App listening on http://localhost:" + PORT);
+app.listen(portNumber, function() {
+    console.log("App listening on http://localhost:" + portNumber);
 });
