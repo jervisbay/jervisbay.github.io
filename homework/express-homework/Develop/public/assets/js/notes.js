@@ -1,13 +1,17 @@
-var noteID;
+// var noteID = 0;
+
+// $.ajax({
+//     url: "/api/id/",
+//     method: "GET"
+// }).then((res) => noteID = res);
 
 $(".submit").on("click", function(event) {
     event.preventDefault();
 
-    // not sure why this noteID increment does not work
     // noteID++;
 
     var newNote = {
-        id: noteID,
+        // id: noteID,
         title: $(".note-title").val().trim(),
         text: $(".note-textarea").val().trim(),
     };

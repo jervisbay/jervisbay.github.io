@@ -10,6 +10,7 @@ function renderNotes() {
                 var noteList = $("#noteList");
                 var listItem = $("<li class='list-group-item mt-4'>");
                 listItem.append(
+                    $("<h6>").text(notesData[i].id),
                     $("<h4>").text(notesData[i].title),
                     $(`<p>`).text(notesData[i].text)
                 );
@@ -18,26 +19,20 @@ function renderNotes() {
         });
 }
 
-function getNewNotesArray(deletedNoteTitle) {
+function getNewNotesArray(deletedNoteID) {
     $.ajax({
-            url: "/api/notes",
-            method: "GET"
+            url: "/api/notes/" + deletedNoteID,
+            method: "DELETE"
         })
         .then(function(notesData) {
-            console.log(deletedNoteTitle);
-            // filter notes that don't include the note being clicked on
-            var newNotesArray = notesData.filter(x => {
-                return x.title != deletedNoteTitle;
-            })
-            console.log(newNotesArray);
-            postNewNotesArray(newNotesArray);
+            console.log(notesData);
         })
 }
 
 function clearNotes() {
     $.ajax({
         url: "/api/clear",
-        method: "GET"
+        method: "DELETE"
     }).then(handleClearNote());
 }
 
@@ -45,18 +40,6 @@ function handleClearNote() {
     alert("Clearing...");
     $("#noteList").empty();
 }
-
-// trying to replace current db.json
-function postNewNotesArray(newNotesArray) {
-    alert("Refreshing notes...");
-    $.ajax({
-        url: "/api/notes",
-        method: "GET"
-    }).then(function(oldNoteArray) {
-        oldNoteArray = newNotesArray;
-    })
-}
-
 
 $(document).on("click", ".list-group-item", function(e) {
     console.log(this);
@@ -67,10 +50,10 @@ $(document).on("click", ".list-group-item", function(e) {
 
 $(document).on("click", ".delete-button", function(e) {
     e.stopPropagation();
-    var deletedNoteTitle = e.target.parentElement.firstElementChild.innerText;
-    console.log(deletedNoteTitle);
+    var deletedNoteID = e.target.parentElement.firstElementChild.innerText;
+    console.log(deletedNoteID);
     e.target.parentElement.remove();
-    getNewNotesArray(deletedNoteTitle);
+    getNewNotesArray(deletedNoteID);
 });
 
 

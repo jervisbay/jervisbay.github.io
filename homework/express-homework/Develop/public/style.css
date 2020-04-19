@@ -6,6 +6,7 @@
 .clear-button {
     margin: auto;
     flex-basis: 40%;
+    color: white;
 }
 
 .button-holder {
