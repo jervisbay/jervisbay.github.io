@@ -2,6 +2,8 @@
 var express = require("express");
 var path = require("path");
 var fs = require("fs");
+var dotenv = require("dotenv");
+require('dotenv').config()
 
 // Read array from db.json and declare as storedNotes
 var storedNotes = require("./Develop/db/db.json");
