@@ -107,6 +107,5 @@ app.post("/api/notes", function(req, res) {
 
 // Starts the server to begin listening
 app.listen(portNumber, function() {
-    var port = server.address().port;
-    console.log("App listening on http://localhost:" + port);
+    console.log("App listening on http://localhost:" + portNumber);
 });
