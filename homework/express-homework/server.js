@@ -108,6 +108,6 @@ app.post("/api/notes", function(req, res) {
 
 
 // Starts the server to begin listening
-app.listen(portNumber, function() {
-    console.log("App listening on http://localhost:" + portNumber);
+app.listen(process.env.PORT || 3000, function() {
+    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
