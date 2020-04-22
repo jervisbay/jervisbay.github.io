@@ -2,9 +2,8 @@
     "name": "note-taker",
     "version": "1.0.0",
     "description": "",
-    "main": "./Develop/public/assets/js/index.js",
     "scripts": {
-        "start": "node server.js",
+        "start": "node ./Develop/src/server.js",
         "heroku-prebuild": "npm install"
     },
     "author": "",

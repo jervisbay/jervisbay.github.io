@@ -6,12 +6,12 @@ var dotenv = require("dotenv");
 require('dotenv').config()
 
 // Read array from db.json and declare as storedNotes
-var storedNotes = require("./Develop/db/db.json");
+var storedNotes = require("../db/db.json");
 
 // Declare id variable to keep track of notes
 var id;
 // get id from id.txt file
-fs.readFile("./Develop/db/id.txt", "UTF-8", function(err, res) {
+fs.readFile("../db/id.txt", "UTF-8", function(err, res) {
     console.log(res);
     id = res;
 })
@@ -23,20 +23,20 @@ var portNumber = process.env.PORT || 3000;
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use("/styles", express.static(path.join(__dirname, '/Develop/public/')));
-app.use("/js", express.static(path.join(__dirname, '/Develop/public/assets/js')));
+app.use("/styles", express.static(path.join(__dirname, '../src/')));
+app.use("/js", express.static(path.join(__dirname, '../src/')));
 
 // Standard routes to GET html pages
 app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "/Develop/public/index.html"));
+    res.sendFile(path.join(__dirname, "../public/index.html"));
 });
 
 app.get("/notes", function(req, res) {
-    res.sendFile(path.join(__dirname, "/Develop/public/notes.html"));
+    res.sendFile(path.join(__dirname, "../public/notes.html"));
 });
 
 app.get("/savednotes", function(req, res) {
-    res.sendFile(path.join(__dirname, "/Develop/public/savednotes.html"));
+    res.sendFile(path.join(__dirname, "../public/savednotes.html"));
 });
 
 // Route to GET saved notes from db.json file
@@ -59,7 +59,7 @@ app.delete("/api/notes/:ID", function(req, res) {
             return x.id != req.params.ID;
         })
         // write filtered array of notes to db.json file
-    fs.writeFile("./Develop/db/db.json", JSON.stringify(storedNotes), function(err, response) {
+    fs.writeFile("../db/db.json", JSON.stringify(storedNotes), function(err, response) {
         // Send msg back in case front end wishes to use message
         res.send("Deleted note with ID: " + req.params.ID);
     })
@@ -70,10 +70,10 @@ app.delete("/api/clear", function(req, res) {
     // Assign array to blank
     storedNotes = [];
     // Write blank array into db.json file
-    fs.writeFile("./Develop/db/db.json", JSON.stringify(storedNotes), function(err, response) {
+    fs.writeFile("../db/db.json", JSON.stringify(storedNotes), function(err, response) {
         console.log("Cleared all notes");
         // Write id.txt to "1" to reset IDs
-        fs.writeFile("./Develop/db/id.txt", 1, function(err, idwrite) {
+        fs.writeFile("../db/id.txt", 1, function(err, idwrite) {
             console.log("Reset ID to 1");
             res.json("Cleared notes");
         });
@@ -88,7 +88,7 @@ app.post("/api/notes", function(req, res) {
     storedNotes.push(newNote);
 
     // read db.json to get current array of notes
-    fs.readFile("./Develop/db/db.json", "UTF8", function(err, resp) {
+    fs.readFile("../db/db.json", "UTF8", function(err, resp) {
         var dbArray = JSON.parse(resp);
 
         // add newNote to array and stringify
@@ -96,10 +96,10 @@ app.post("/api/notes", function(req, res) {
         dbArray = JSON.stringify(dbArray);
 
         // write new array back into db.json
-        fs.writeFile("./Develop/db/db.json", dbArray, function(err, response) {
+        fs.writeFile("../db/db.json", dbArray, function(err, response) {
             // increment the id and write it back to id.txt
             id++;
-            fs.writeFile("./Develop/db/id.txt", id, function(err, respo) {
+            fs.writeFile("../db/id.txt", id, function(err, respo) {
                 res.json(newNote);
             });
         })
