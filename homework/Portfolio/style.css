@@ -87,7 +87,7 @@ a {
 .body-container {
     width: 90%;
     /* border: 1px black solid; */
-    height: 1000px;
+    /* height: 1000px; */
     margin: auto;
     margin-top: 10px;
 }
@@ -104,37 +104,132 @@ a {
     background-color: rgb(245, 241, 192);
 }
 
-#portfolio-card {
-    margin-top: 20px;
-    padding-left: 5%;
+
+/* Portfolio Card Settings */
+
+.flex-project-container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 
-.floater {
-    background-color: yellow;
-    width: 150px;
+.project-name-container {
+    /* flex-basis: 15%; */
+    height: 300px;
+    width: 300px;
+    /* background-color: tomato; */
     text-align: center;
+    padding-top: 0.5rem;
+    padding-bottom: 10px;
     font-weight: bold;
-    height: 30px;
-    padding-top: 2%;
-    border-top: rgb(128, 128, 0) solid 1px;
-    border-bottom: rgb(128, 128, 0) solid 1px;
-    position: relative;
-    bottom: 30%;
-    font-size: 14px;
+    border: rgb(94, 94, 6) solid 2px;
+    /* background-color: black; */
+    color: black;
+    margin-top: 10px;
+}
+
+.project-name-container:hover {
+    transform: scale(1.15);
+}
+
+.project-image-container {
+    height: 80%;
+    width: 80%;
+    background-size: cover;
+    margin: auto;
+    border-radius: 25px;
+}
+
+.tmv-image-container {
+    background-image: url("/assets/images/waffles-in-tent.jpg");
+}
+
+.tmv-image-container:hover {
+    background-image: url("/assets/images/tmv-image.png");
+}
+
+.notetaker-image-container {
+    background-image: url("/assets/images/waffles-sleeping.jpeg");
+}
+
+.notetaker-image-container:hover {
+    background-image: url("/assets/images/notetaker-image.png");
+}
+
+.beastmode-image-container {
+    background-image: url("/assets/images/waffles-productive.jpeg");
+}
+
+.beastmode-image-container:hover {
+    background-image: url("/assets/images/beastmode-image.png");
 }
 
 
 /* Footer settings */
 
-footer {
-    background-color: rgba(255, 255, 0, 0.479);
-    height: 20px;
-    font-size: 10px;
+.btn-social {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border: 2px solid black;
+    border-radius: 100%;
     text-align: center;
-    padding-top: 1px;
-    padding-bottom: 1px;
-    position: static;
-    bottom: 0%;
-    left: 0%;
-    width: 100%;
+    font-size: 20px;
+    line-height: 45px;
+    align-content: center;
+}
+
+.fa-fw {
+    width: 10px;
+    text-align: center;
+}
+
+.fa {
+    display: inline-block;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    color: black;
+}
+
+footer {
+    display: block;
+    color: black;
+    text-align: center;
+    margin-top: 100%;
+}
+
+footer {
+    text-align: center;
+}
+
+footer .footer-above {
+    padding-top: 15px;
+    text-align: center;
+    background-color: rgb(245, 241, 192);
+}
+
+.fa-instagram:before {
+    content: "\f16d";
+}
+
+.footer-above {
+    display: flex;
+}
+
+.blank-flex-container-1 {
+    flex: 1;
+}
+
+.blank-flex-container-2 {
+    flex: 1;
+}
+
+.footer-flex-container-main {
+    flex: 1;
+}
+
+#copyright-text {
+    font-size: 12px;
 }

@@ -9,6 +9,7 @@
     <!-- Start of Stylesheets -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://jeromelachaud.com/freelancer-theme/css/font-awesome/css/font-awesome.min.css" />
     <!-- End of Stylesheets -->
 </head>
 
@@ -40,56 +41,62 @@
 </nav>
 <!-- End of Navigation Section | Appears on small screen -->
 
-<body>
-    <!-- Container used to store Portfolio cards -->
-    <div class="body-container">
 
-        <!-- These are the Portfolio cards -->
-        <div class="card" style="max-width: 30rem;">
-            <div class="card-header">Portfolio</div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-6" id="portfolio-card"><img src="Assets/Images/waffles-in-tent.jpg" width="150px" height="150px">
-                        <div class="floater">
-                            <a href="http://jervisbay.github.io/tmv-project" target="blank">The Millennial Voice</a>
-                        </div>
+<!-- Container used to store Portfolio cards -->
+<div class="body-container">
+    <br>
+    <h1 class="text-center">Portfolio</h1>
 
 
-                    </div>
-                    <div class="col-6" id="portfolio-card"><img src="Assets/Images/downward-dog.jpg" width="150px" height="150px">
-                        <div class="floater">
-                            More to Come!
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-6" id="portfolio-card"><img src="Assets/Images/waffles-sleeping.jpeg" width="150px" height="150px">
-                        <div class="floater">
-                            More to Come!
-                        </div>
-                    </div>
-                    <div class="col-6" id="portfolio-card"><img src="Assets/Images/waffles-productive.jpeg" width="150px" height="150px">
-                        <div class="floater">
-                            More to Come!
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-6" id="portfolio-card"><img src="Assets/Images/waffles-subway.jpg" width="150px" height="150px">
-                        <div class="floater">More to Come!</div>
-                    </div>
-                </div>
+    <br>
+    <div class="flex-project-container container">
 
-
+        <a href="http://jervisbay.github.io/tmv-project" target="blank">
+            <div class="project-name-container">
+                <h4>The Millennial Voice</h4>
+                <div class="project-image-container tmv-image-container"></div>
             </div>
-        </div>
+        </a>
+
+        <a href="http://jbay-note-taker.herokuapp.com" target="blank">
+            <div class="project-name-container">
+                <h4>Simple Note Taker App</h4>
+                <div class="project-image-container notetaker-image-container"></div>
+            </div>
+        </a>
+
+
+        <a href="http://beastmodefitness.herokuapp.com" target="blank">
+            <div class="project-name-container">
+                <h4>Beast Mode</h4>
+                <div class="project-image-container beastmode-image-container"></div>
+            </div>
+        </a>
+
     </div>
-    <footer>
-        2020 Columbia University Coding Bootcamp
-    </footer>
-</body>
+</div>
+
 
 <!-- Start of Footer -->
+<footer class="text-center">
+    <div class="footer-above">
+        <div class="blank-flex-container-1"></div>
 
+        <div class="footer-flex-container-main">
+            <a href="https://www.instagram.com/jervishbay/" target="blank"><i class="fa fa-fw fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/jervisbay/" target="blank"><i class="fa fa-fw fa-linkedin"></i></a>
+            <a href="https://github.com/jervisbay" target="blank"><i class="fa fa-fw fa-github"></i></a>
+
+            <p class="text-muted" id="copyright-text">Copyright &copy;</p>
+
+        </div>
+        <div class="blank-flex-container-2"></div>
+
+    </div>
+
+</footer>
 
 </html>
+
+
+<!-- <a href="http://jervisbay.github.io/tmv-project" target="blank">The Millennial Voice</a> -->
