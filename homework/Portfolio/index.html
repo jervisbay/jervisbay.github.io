@@ -22,81 +22,129 @@
 
 
 
-<div class="jumbotron">
+<section class="intro-jumbotron" id="intro">
     <div class="jumbotext">
-        <p class="text-white">Hi. My name is Jervis Bay</p>
+        <p class="text-white" id="intro-text">Hello! I'm <br><span class="name-text">Jervis Bay</span>
+        </p>
     </div>
+    <div class="jumbotext">
+        <div class="button-holder">
 
+            <button class="work-button"><a href="#about-me">More About Me.</button></a>
+            <button class="work-button"><a href="#portfolio">See My Work Here.</button></a>
+        </div>
+    </div>
+</section>
+
+<section class="navigation-bar">
+    <div class="navigation">
+        <div class="nav-box"><button class="nav-button"><a href="#portfolio">About</button></a>
+        </div>
+
+        <div class="nav-box"><button class="nav-button"><a href="#portfolio">Portfolio</button></a>
+        </div>
+
+        <div class="nav-box"><button class="nav-button"><a href="#portfolio">Contact</button></a>
+        </div>
+    </div>
+</section>
+
+<br><br><br>
+
+<!-- Start of About Me Section -->
+<section id="about-me">
+    <h1 class="section-title">About Me</h1>
+<br>
+<br>
+    <div class="container flex-about-container">
+<div class="flex-about-text-1">
+    
+</div>
+<div class="flex-about-text-2" id="gray-background">
+    <p class="about-text">Born in Singapore.<br>
+    Studied in Virginia.
+   
+</p>
+</div>
 </div>
 
-<!-- Start of Navigation Section | Hides on small screen -->
-<nav class="navbar">
-    <div class="nav-container">
-        <div class="row">
-            <div class="col-4 nav-brand">Jervis Bay</div>
-            <div class="col-2"></div>
-            <div class="col-2 nav-link" id="border-left"><a href="index.html">About</a></div>
-            <div class="col-2 nav-link" id="border-left"><a href="portfolio.html">Portfolio</a></div>
-            <div class="col-2 nav-link" id="border-left"><a href="contact.html" target="blank">Contact</a></div>
-        </div>
+<br><br>
+
+<div class="container flex-about-container">
+    <div class="flex-about-text-1">
+        <p class="about-text">       
+            Worked in: <br>
+            New York <br>
+            San Francisco
+        </p>
     </div>
-</nav>
-<!-- End of Navigation Section | Hides on small screen -->
-
-<!-- Start of Navigation Section | Appears on small screen -->
-<nav class="navbar2">
-    <div class="row" id="navbar2-top-row">Jervis Bay</div>
-    <div class="nav-container">
-        <div class="row" id="navbar2-second-row">
-            <div class="col-4 nav-link" id="border-right"><a href="index.html">About</a></div>
-            <div class="col-4 nav-link" id="border-right"><a href="portfolio.html">Portfolio</a></div>
-            <div class="col-4 nav-link"><a href="contact.html" target="blank">Contact</a></div>
-        </div>
+    <div class="flex-about-text-2">
+        
     </div>
+    
+    
     </div>
-</nav>
-<!-- End of Navigation Section | Appears on small screen -->
 
 
 
-<body>
-    <!-- Container used to store About Me card -->
-    <div class="body-container">
-
-        <!-- This is the About Me card -->
-        <div class="card" style="max-width: 30rem;">
-            <div class="card-header">About Me</div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col"><img src="Assets/Images/main-pic.jpg" height="175px" width="175px" alt="Picture of Jervis holding his Corgi (Pembroke Welsh)"></div>
-                    <div class="col">Just a 30+ year old experiencing a mid-life crisis having spent an entire career in Finance. Oh, and my favorite color is yellow.</div>
+</section>
 
 
-                </div>
+
+<!-- Start of Portfolio Section -->
+<section id="portfolio">
+    <br>
+    <h1 class="section-title">Portfolio</h1>
+    <br>
+    <br>
+    <div class="flex-project-container container">
+
+        <a href="http://jervisbay.github.io/tmv-project" target="blank">
+            <div class="project-name-container">
+                <h4>The Millennial Voice</h4>
+                <div class="project-image-container tmv-image-container"></div>
             </div>
-        </div>
-    </div>
-    </div>
+        </a>
 
-    <!-- Start of Footer -->
-    <footer class="text-center">
-        <div class="footer-above">
-            <div class="blank-flex-container-1"></div>
-
-            <div class="footer-flex-container-main">
-                <a href="https://www.instagram.com/jervishbay/" target="blank"><i class="fa fa-fw fa-instagram"></i></a>
-                <a href="https://www.linkedin.com/in/jervisbay/" target="blank"><i class="fa fa-fw fa-linkedin"></i></a>
-                <a href="https://github.com/jervisbay" target="blank"><i class="fa fa-fw fa-github"></i></a>
-
-                <p class="text-muted" id="copyright-text">Copyright &copy;</p>
-
+        <a href="http://jbay-note-taker.herokuapp.com" target="blank">
+            <div class="project-name-container">
+                <h4>Simple Note Taker App</h4>
+                <div class="project-image-container notetaker-image-container"></div>
             </div>
-            <div class="blank-flex-container-2"></div>
+        </a>
+
+
+        <a href="http://beastmodefitness.herokuapp.com" target="blank">
+            <div class="project-name-container">
+                <h4>Beast Mode</h4>
+                <div class="project-image-container beastmode-image-container"></div>
+            </div>
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- Start of Footer -->
+<footer class="text-center">
+    <div class="footer-above">
+        <div class="blank-flex-container-1"></div>
+
+        <div class="footer-flex-container-main">
+            <a href="https://www.instagram.com/jervishbay/" target="blank"><i class="fa fa-fw fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/jervisbay/" target="blank"><i class="fa fa-fw fa-linkedin"></i></a>
+            <a href="https://github.com/jervisbay" target="blank"><i class="fa fa-fw fa-github"></i></a>
+
+            <p class="text-muted" id="copyright-text">Copyright &copy;</p>
 
         </div>
+        <div class="blank-flex-container-2"></div>
 
-    </footer>
-</body>
+    </div>
+
+</footer>
+
 
 
 

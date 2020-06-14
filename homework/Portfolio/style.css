@@ -29,56 +29,11 @@
 }
 
 body {
-    background-color: rgb(240, 240, 223);
+    /* background-color: rgb(240, 240, 223); */
 }
 
 a {
     color: black;
-}
-
-
-/* Navigation bar for larger screens */
-
-.navbar {
-    background-color: rgba(255, 255, 0, 0.479);
-    height: 60px;
-}
-
-.nav-container {
-    width: 90%;
-    margin: auto;
-}
-
-.nav-brand {
-    font-size: 24px;
-    text-align: center;
-    background-color: rgb(185, 185, 185);
-    color: black;
-    font-weight: bolder;
-}
-
-.nav-link {
-    font-size: 16px;
-    margin: auto;
-    text-align: center;
-}
-
-
-/* Navigation bar for smaller screens */
-
-.navbar2 {
-    background-color: rgba(255, 255, 0, 0.479);
-}
-
-#navbar2-top-row {
-    background-color: rgb(185, 185, 185);
-    color: black;
-    font-weight: bolder;
-    text-align: center;
-    /* Why doesn't this text align center automatically? */
-    margin: auto;
-    padding: 6px 40% 6px 40%;
-    height: 40px;
 }
 
 
@@ -104,8 +59,48 @@ a {
     background-color: rgb(245, 241, 192);
 }
 
+#portfolio {
+    background-color: lightgray;
+    height: 800px;
+}
 
-/* Portfolio Card Settings */
+#about-me {
+    height: 800px;
+}
+
+/* About Me Section Settings */
+.flex-about-container {
+    display: flex;
+    /* border: 1px solid black; */
+    /* justify-content: space-evenly; */
+}
+
+.flex-about-text-1 {
+    flex: 1;
+    /* border: red solid 1px; */
+    height: 200px;
+}
+
+.flex-about-text-2 {
+    flex: 2;
+    /* border: red solid 1px; */
+    height: 200px;
+    ;
+    display: flex
+}
+
+.about-text {
+    font-size: 24px;
+    margin: auto;
+    text-align: center;
+}
+
+#gray-background {
+    background-color: lightgray;
+}
+
+
+/* Portfolio Section Settings */
 
 .flex-project-container {
     display: flex;
@@ -232,4 +227,24 @@ footer .footer-above {
 
 #copyright-text {
     font-size: 12px;
+}
+
+.section-title {
+    animation-name: section;
+    animation-duration: 4s;
+    text-align: center;
+    font-weight: bolder;
+    border-bottom: 2px black double;
+}
+
+@keyframes section {
+    0% {
+        margin-left: 0%;
+    }
+    50% {
+        margin-left: 20%;
+    }
+    100% {
+        text-align: center;
+    }
 }
