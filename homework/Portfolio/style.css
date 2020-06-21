@@ -167,27 +167,27 @@ a {
 }
 
 .tmv-image-container {
-    background-image: url("/assets/images/waffles-in-tent.jpg");
+    background-image: url("https://jervisbay.github.io/homework/Portfolio/assets/images/waffles-in-tent.jpg");
 }
 
 .tmv-image-container:hover {
-    background-image: url("/assets/images/tmv-image.png");
+    background-image: url("https://jervisbay.github.io/homework/Portfolio/assets/images/tmv-image.png");
 }
 
 .notetaker-image-container {
-    background-image: url("/assets/images/waffles-sleeping.jpeg");
+    background-image: url("https://jervisbay.github.io/homework/Portfolio/assets/images/waffles-sleeping.jpeg");
 }
 
 .notetaker-image-container:hover {
-    background-image: url("/assets/images/notetaker-image.png");
+    background-image: url("https://jervisbay.github.io/homework/Portfolio/assets/images/notetaker-image.png");
 }
 
 .beastmode-image-container {
-    background-image: url("/assets/images/waffles-productive.jpeg");
+    background-image: url("https://jervisbay.github.io/homework/Portfolio/assets/images/waffles-productive.jpeg");
 }
 
 .beastmode-image-container:hover {
-    background-image: url("/assets/images/beastmode-image.png");
+    background-image: url("https://jervisbay.github.io/homework/Portfolio/assets/images/beastmode-image.png");
 }
 
 
